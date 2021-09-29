@@ -4,11 +4,11 @@
       <img src="./images/dropLogo.png" alt="" width="30" height="24" class="d-inline-block align-text-top bg-light" id="logo">
       DROPS
     </a>
- 
+    <div>
    {if $username|default:false }
-     <div id="loginCont">
-    <form method='POST' action='logout'>
-    <p id="loggedUser">Logged In as= {$username} </p>
+     
+    <form method='POST' action='logout' id="loginForm">
+    <p id="loggedUser">Logged In as = {$username} </p>
     <input type="submit" class="btn btn-outline-light me-2" value='Logout'></button>
     </form>
    
