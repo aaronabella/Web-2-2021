@@ -10,7 +10,12 @@ class DropsView {
     }
 
     function showProducts(){
-        $this->smarty->display('templates/DropsList.tpl');
+        session_start();
+        if (isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
+          $this->smarty->assign('username', $_SESSION['username']);     
+        }
+        $this->smarty->display('templates/DropsList.tpl'); 
+        
     }
 
     function showLogin(){
@@ -20,4 +25,5 @@ class DropsView {
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");
     }
+
 }

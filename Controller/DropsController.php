@@ -14,6 +14,7 @@ class DropsController{
     }
 
     function showProducts(){
+
         $this->view->showProducts();
     }
     function showLogin(){
@@ -27,12 +28,12 @@ class DropsController{
 
     function dropsLogin(){
         $this->model->dropsLogin();
+        
         $this->view->showHomeLocation();
+
     }
 
-    function showHome(){
-        $this->view->showHomeLocation();
-    }
+
 
 
 }

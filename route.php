@@ -28,6 +28,9 @@ switch ($params[0]) {
     case 'logout':
         $dropsController->dropsLogout();
         break;
+    case 'login':
+        $dropsController->dropsLogin();
+        break;
     default: 
     echo('404 Page not found'); 
     break;

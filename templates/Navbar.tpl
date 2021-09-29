@@ -4,29 +4,23 @@
       <img src="./images/dropLogo.png" alt="" width="30" height="24" class="d-inline-block align-text-top bg-light" id="logo">
       DROPS
     </a>
-      {*if(isset($_SESSION["logueado"]) && $_SESSION["logueado"] === true)
-        <form method='POST' action='logout'>
-          <p>Logged In as= {$user->username} </p>
-          <input type="submit" class="btn btn-outline-light me-2" value='Logout'></button>
-        </form>
-  
-   else
-      <form method='POST' action='loginPage'>
-        <input type="submit" class="btn btn-outline-light me-2" value='Login'></button>
-      </form>
-   *}
-    {*LogOut*}
-    <div>
+ 
+   {if $username|default:false }
+     <div id="loginCont">
     <form method='POST' action='logout'>
-    <p>Logged In as= {*$user->username*} </p>
+    <p id="loggedUser">Logged In as= {$username} </p>
     <input type="submit" class="btn btn-outline-light me-2" value='Logout'></button>
     </form>
-    
-    {*LogIn*}
+   
+    {else}
+      
     <form method='POST' action='loginPage'>
     <input type="submit" class="btn btn-outline-light me-2" value='Login'></button>
     </form>
+    {/if}
     </div>
+
+      
 
   </div>
   
