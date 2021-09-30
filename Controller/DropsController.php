@@ -26,10 +26,19 @@ class DropsController{
         $this->view->showHomeLocation();
     }
 
+    //USER= admin
+    //PASSWORD= admin123
+
     function dropsLogin(){
         $this->model->dropsLogin();
+        if (isset($_SESSION['logged']) && $_SESSION['logged'] == true){
+            $this->view->showHomeLocation();
+        }
+        else{
+            $this->view->showLogin();
+        }
         
-        $this->view->showHomeLocation();
+        
 
     }
 
