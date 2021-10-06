@@ -5,7 +5,7 @@
       DROPS
     </a>
     <div>
-   {if $username|default:false }
+   {if $logged|default:false }
      
     <form method='POST' action='logout' id="loginForm">
     <p id="loggedUser">Logged In as = {$username} </p>

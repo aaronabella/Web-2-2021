@@ -8,36 +8,24 @@ class DropsModel{
          $this->db = new PDO('mysql:host=localhost;'.'dbname=db_gordodrops;charset=utf8', 'root', '');
     }
 
+    function getProducts(){
+        $query = $this->db->prepare( "select * from zapatillas");
+        $query->execute();
+        $products = $query->fetchAll(PDO::FETCH_OBJ);
+        return $products;
+    } 
 
-    function dropsLogin(){
-        
-        if(!empty($_POST['username'])&& !empty($_POST['password'])){
-            $userName=$_POST['username'];
-            $userPassword=$_POST['password'];
-            
-            $query = $this->db->prepare('SELECT * FROM usuarios WHERE username = ?');
-            $query->execute([$userName]);
-            $user = $query->fetch(PDO::FETCH_OBJ);
-        
+    function addProduct($marca,$modelo,$estilo,$precio){
+        $query = $this->db->prepare("INSERT INTO zapatillas(Marca, Modelo, Estilo, Precio) VALUES(?, ?, ?, ?)");
+        $query->execute(array($marca,$modelo,$estilo,$precio));
 
-        if($user && password_verify($userPassword,($user->password))){
-            session_start();
-            $_SESSION["logged"] = true;
-            $_SESSION["username"] = $userName;
-                
-        }else{
-            $_SESSION["logged"] = false;
-        }
-        
-    }
     }
 
-    function dropsLogout(){
-        session_start();
-        session_destroy();
-        
-        
+    function delProduct($id){
+        $sentencia = $this->db->prepare("DELETE FROM zapatillas WHERE id_zapatilla=?");
+        $sentencia->execute(array($id));
     }
+
 
 
 }

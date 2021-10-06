@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-29 22:13:21
+/* Smarty version 3.1.39, created on 2021-10-06 21:31:45
   from 'C:\xampp\htdocs\Drops\templates\Navbar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6154c8e16f79c9_62646017',
+  'unifunc' => 'content_615df9a1d1fd38_49645928',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0e65b718d125f1ae7b39bab50a3329c7f090542d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Drops\\templates\\Navbar.tpl',
-      1 => 1632946396,
+      1 => 1633548653,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6154c8e16f79c9_62646017 (Smarty_Internal_Template $_smarty_tpl) {
+function content_615df9a1d1fd38_49645928 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="home">
@@ -28,7 +28,7 @@ function content_6154c8e16f79c9_62646017 (Smarty_Internal_Template $_smarty_tpl)
       DROPS
     </a>
     <div>
-   <?php if ((($tmp = @$_smarty_tpl->tpl_vars['username']->value)===null||$tmp==='' ? false : $tmp)) {?>
+   <?php if ((($tmp = @$_smarty_tpl->tpl_vars['logged']->value)===null||$tmp==='' ? false : $tmp)) {?>
      
     <form method='POST' action='logout' id="loginForm">
     <p id="loggedUser">Logged In as = <?php echo $_smarty_tpl->tpl_vars['username']->value;?>

@@ -1,6 +1,7 @@
 <?php
 require_once "./Model/DropsModel.php";
 require_once "./View/DropsView.php";
+require_once "./Helper/logHelper.php";
 
 class DropsController{
 
@@ -11,38 +12,36 @@ class DropsController{
     function __construct(){
         $this->model = new DropsModel();
         $this->view = new DropsView();
+        $this->logHelper = new logHelper();
     }
 
     function showProducts(){
-
-        $this->view->showProducts();
-    }
-    function showLogin(){
-        $this->view->showLogin();
+        $products = $this->model->getProducts();
+        $this->view->showProducts($products);
     }
 
-    function dropsLogout(){
-        $this->model->dropsLogout();
-        $this->view->showHomeLocation();
-    }
-
-    //USER= admin
-    //PASSWORD= admin123
-
-    function dropsLogin(){
-        $this->model->dropsLogin();
-        if (isset($_SESSION['logged']) && $_SESSION['logged'] == true){
-            $this->view->showHomeLocation();
-        }
-        else{
-            $this->view->showLogin();
-        }
-        
-        
+    function addProduct(){
+        $this->logHelper->checkLogIn();
+        $this->model->addProduct($_POST['Marca'], $_POST['Modelo'], $_POST['Estilo'], $_POST['Precio']);
+        $this->view->showHome();
 
     }
 
+    function delProduct($id){
+        $this->logHelper->checkLogIn();
+        $this->model->delProduct($id);
+        $this->view->showHome();
+    }
 
+    function updateProduct($id){
+        $this->logHelper->checkLogIn();
+        $this->model->updateProduct($id);
+        $this->view->showHome();
 
+    }
+
+    function dropProduct($id){
+
+    }
 
 }

@@ -1,5 +1,6 @@
 <?php
 require_once "Controller/DropsController.php";
+require_once "Controller/LoginController.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -15,6 +16,7 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 $dropsController= new DropsController();
+$loginController= new LoginController();
 
 switch ($params[0]) {
     case 'home': 
@@ -22,14 +24,26 @@ switch ($params[0]) {
         break;
 
     case'loginPage':
-        $dropsController->showLogin();
+        $loginController->showLogin();
         break;
 
     case 'logout':
-        $dropsController->dropsLogout();
+        $loginController->dropsLogout();
         break;
     case 'login':
-        $dropsController->dropsLogin();
+        $loginController->dropsLogin();
+        break;
+    case 'addProduct': 
+        $dropsController->addProduct(); 
+        break;
+    case 'delProduct': 
+        $dropsController->delProduct($params[1]); 
+        break;
+    case 'updateProduct': 
+        $dropsController->updateProduct($params[1]); 
+        break;
+    case 'dropProduct': 
+        $dropsController->dropProduct($params[1]); 
         break;
     default: 
     echo('404 Page not found'); 
