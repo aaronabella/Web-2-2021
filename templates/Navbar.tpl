@@ -7,16 +7,15 @@
     <div>
    {if $logged|default:false }
      
-    <form method='POST' action='logout' id="loginForm">
+    <div id="loginBar">
     <p id="loggedUser">Logged In as = {$username} </p>
-    <input type="submit" class="btn btn-outline-light me-2" value='Logout'></button>
-    </form>
+    <a href='logout' class="btn btn-outline-light me-2">Logout</a>
+    </div>
    
     {else}
-      
-    <form method='POST' action='loginPage'>
-    <input type="submit" class="btn btn-outline-light me-2" value='Login'></button>
-    </form>
+
+    <a href='loginPage' class="btn btn-outline-light me-2">LogIn</a>
+
     {/if}
     </div>
 

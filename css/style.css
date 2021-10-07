@@ -1,7 +1,7 @@
 #logo {
   border-radius: 40%;
 }
-#loginForm {
+#loginBar {
   display: flex;
 }
 #loggedUser {
@@ -10,5 +10,11 @@
   margin: auto;
 }
 body {
-  background-image: url(images/duko.jpg);
+  background-image: url(../images/duko.jpg);
+  background-size: cover;
+  background-color: 0.5;
+}
+
+li{
+  width: fit-content;
 }
