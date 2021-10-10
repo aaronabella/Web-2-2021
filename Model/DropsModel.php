@@ -27,7 +27,7 @@ class DropsModel{
     }
     function getSneakers($id){
 
-        $query = $this->db->prepare( "select * from tareas WHERE id_zapatilla=?");
+        $query = $this->db->prepare( "select * from zapatillas WHERE id_zapatilla=?");
         $query->execute(array($id));
         $zapatilla = $query->fetch(PDO::FETCH_OBJ);
         return $zapatilla;
