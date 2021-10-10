@@ -25,7 +25,14 @@ class DropsModel{
         $sentencia = $this->db->prepare("DELETE FROM zapatillas WHERE id_zapatilla=?");
         $sentencia->execute(array($id));
     }
+    function getSneakers($id){
 
+        $query = $this->db->prepare( "select * from tareas WHERE id_zapatilla=?");
+        $query->execute(array($id));
+        $zapatilla = $query->fetch(PDO::FETCH_OBJ);
+        return $zapatilla;
+
+    }
 
 
 }

@@ -21,14 +21,8 @@ class DropsController{
     }
     
     function addProduct(){
-        if(!isset($_POST['stock'])){
-            $stock = 0;
-        }else{
-            $stock = 1;
-        }
-
         $this->logHelper->checkLogIn();
-        $this->model->addProduct($_POST['Marca'], $_POST['Modelo'], $_POST['Estilo'], $_POST['Precio'], $stock);
+        $this->model->addProduct($_POST['Marca'], $_POST['Modelo'], $_POST['Estilo'], $_POST['Precio']);
         $this->view->showHome();
 
     }
@@ -47,8 +41,7 @@ class DropsController{
     }
 
     function dropProduct($id){
-        $product = $this-> model-> getProducts($id);
+        $product = $this-> model-> getSneakers($id);
         $this->view->showProduct($product); 
-    }
-
+    }   
 }
