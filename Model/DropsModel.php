@@ -15,9 +15,9 @@ class DropsModel{
         return $products;
     } 
 
-    function addProduct($marca,$modelo,$estilo,$precio){
-        $query = $this->db->prepare("INSERT INTO zapatillas(Marca, Modelo, Estilo, Precio) VALUES(?, ?, ?, ?)");
-        $query->execute(array($marca,$modelo,$estilo,$precio));
+    function addProduct($marca,$modelo,$estilo,$precio,$stock){
+        $query = $this->db->prepare("INSERT INTO zapatillas(Marca, Modelo, Estilo, Precio, Stock) VALUES(?, ?, ?, ?, ?)");
+        $query->execute(array($marca,$modelo,$estilo,$precio,$stock));
 
     }
 

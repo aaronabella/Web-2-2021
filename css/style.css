@@ -18,3 +18,15 @@ body {
 li{
   width: fit-content;
 }
+.prodForm{
+  display: flex;
+  
+}
+#prodStock{
+  justify-content: center;
+  background-color: white;
+  border: solid lightgray 1px;
+  border-radius: 5%;
+  margin: 5px;
+  padding: 5px;
+}

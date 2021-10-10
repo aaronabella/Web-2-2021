@@ -21,8 +21,14 @@ class DropsController{
     }
     
     function addProduct(){
+        if(!isset($_POST['stock'])){
+            $stock = 0;
+        }else{
+            $stock = 1;
+        }
+
         $this->logHelper->checkLogIn();
-        $this->model->addProduct($_POST['Marca'], $_POST['Modelo'], $_POST['Estilo'], $_POST['Precio']);
+        $this->model->addProduct($_POST['Marca'], $_POST['Modelo'], $_POST['Estilo'], $_POST['Precio'], $stock);
         $this->view->showHome();
 
     }
