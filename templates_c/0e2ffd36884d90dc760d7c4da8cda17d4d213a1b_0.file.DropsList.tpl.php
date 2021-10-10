@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-11 00:28:12
+/* Smarty version 3.1.39, created on 2021-10-11 00:37:21
   from 'C:\xampp\htdocs\Drops\templates\DropsList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_616368fc7115e2_22620016',
+  'unifunc' => 'content_61636b21167765_83566891',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0e2ffd36884d90dc760d7c4da8cda17d4d213a1b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Drops\\templates\\DropsList.tpl',
-      1 => 1633904891,
+      1 => 1633905438,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_616368fc7115e2_22620016 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61636b21167765_83566891 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender('file:templates/Navbar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 if ((($tmp = @$_smarty_tpl->tpl_vars['logged']->value)===null||$tmp==='' ? false : $tmp)) {?>
@@ -35,18 +35,18 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['product']->value
 $_smarty_tpl->tpl_vars['product']->do_else = false;
 ?>
                 <li class="list-group-item listProduct">
-                    <a href="dropsProduct/<?php echo $_smarty_tpl->tpl_vars['product']->value->id_zapatilla;?>
+                    <a href="dropProduct/<?php echo $_smarty_tpl->tpl_vars['product']->value->id_zapatilla;?>
 "><?php echo $_smarty_tpl->tpl_vars['product']->value->Marca;?>
  <?php echo $_smarty_tpl->tpl_vars['product']->value->Modelo;?>
 </a>
                     <a class="btn btn-danger" href="delProduct/<?php echo $_smarty_tpl->tpl_vars['product']->value->id_zapatilla;?>
 ">Borrar</a> 
                     <?php if ($_smarty_tpl->tpl_vars['product']->value->Stock == 0) {?>
-                        <a class="btn btn-warning" href="updateProduct/<?php echo $_smarty_tpl->tpl_vars['product']->value->id_zapatilla;?>
+                        <a class="btn btn-warning" href="updateProduct/addStock<?php echo $_smarty_tpl->tpl_vars['product']->value->id_zapatilla;?>
 ">Agregar Stock</a>
                     <?php } else { ?>
                         
-                    <a class="btn btn-warning" href="updateProduct/<?php echo $_smarty_tpl->tpl_vars['product']->value->id_zapatilla;?>
+                    <a class="btn btn-warning" href="updateProduct/delStock<?php echo $_smarty_tpl->tpl_vars['product']->value->id_zapatilla;?>
 ">Quitar Stock</a>                    
                     <?php }?> 
                 </li>

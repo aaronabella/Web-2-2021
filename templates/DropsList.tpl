@@ -4,7 +4,7 @@
     <ul class="list-group">
             {foreach from=$products item=$product}
                 <li class="list-group-item listProduct">
-                    <a href="dropsProduct/{$product->id_zapatilla}">{$product->Marca} {$product->Modelo}</a>
+                    <a href="dropProduct/{$product->id_zapatilla}">{$product->Marca} {$product->Modelo}</a>
                     <a class="btn btn-danger" href="delProduct/{$product->id_zapatilla}">Borrar</a> 
                     {if $product->Stock==0}
                         <a class="btn btn-warning" href="updateProduct/addStock{$product->id_zapatilla}">Agregar Stock</a>
