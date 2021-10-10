@@ -19,7 +19,7 @@ class DropsController{
         $products = $this->model->getProducts();
         $this->view->showProducts($products);
     }
-
+    
     function addProduct(){
         $this->logHelper->checkLogIn();
         $this->model->addProduct($_POST['Marca'], $_POST['Modelo'], $_POST['Estilo'], $_POST['Precio']);
@@ -41,7 +41,8 @@ class DropsController{
     }
 
     function dropProduct($id){
-
+        $product = $this-> model-> getProducts($id);
+        $this->view->showProduct($product); 
     }
 
 }

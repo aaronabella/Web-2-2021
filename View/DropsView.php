@@ -20,6 +20,12 @@ class DropsView {
         $this->smarty->display('templates/DropsList.tpl'); 
         
     }
+     
+    function showProduct($product){
+        $this->smarty->assign('product', $product);
+        $this->smarty->display('templates/product.tpl');
+
+    }
 
     function showLogin(){
         $this->smarty->display('templates/login.tpl');
