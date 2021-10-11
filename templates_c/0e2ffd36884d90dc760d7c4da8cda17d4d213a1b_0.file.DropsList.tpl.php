@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-11 21:26:07
+/* Smarty version 3.1.39, created on 2021-10-11 23:06:00
   from 'C:\xampp\htdocs\Drops\templates\DropsList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61648fcf78cc82_31716180',
+  'unifunc' => 'content_6164a738036b89_80149803',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0e2ffd36884d90dc760d7c4da8cda17d4d213a1b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Drops\\templates\\DropsList.tpl',
-      1 => 1633980319,
+      1 => 1633986359,
       2 => 'file',
     ),
   ),
@@ -23,10 +23,31 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_61648fcf78cc82_31716180 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6164a738036b89_80149803 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender('file:templates/Navbar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-if ((($tmp = @$_smarty_tpl->tpl_vars['logged']->value)===null||$tmp==='' ? false : $tmp)) {?>
+?>
+<form action="home" method="post">
+    <select name="marcaFilter" required>
+            <option value="all">TODO</option>
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['marcas']->value, 'marca');
+$_smarty_tpl->tpl_vars['marca']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['marca']->value) {
+$_smarty_tpl->tpl_vars['marca']->do_else = false;
+?>
+            <option value="<?php echo $_smarty_tpl->tpl_vars['marca']->value->id_marca;?>
+"><?php echo $_smarty_tpl->tpl_vars['marca']->value->Nombre;?>
+</option>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+    </select>
+    <input type="submit" class="btn btn-primary" value="filtrar">
+
+</form>
+
+<?php if ((($tmp = @$_smarty_tpl->tpl_vars['logged']->value)===null||$tmp==='' ? false : $tmp)) {?>
     <ul class="list-group">
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['products']->value, 'product');
@@ -36,7 +57,7 @@ $_smarty_tpl->tpl_vars['product']->do_else = false;
 ?>
                 <li class="list-group-item listProduct">
                     <a href="dropProduct/<?php echo $_smarty_tpl->tpl_vars['product']->value->id_zapatilla;?>
-"><?php echo $_smarty_tpl->tpl_vars['product']->value->Marca;?>
+"><?php echo $_smarty_tpl->tpl_vars['product']->value->marca;?>
  <?php echo $_smarty_tpl->tpl_vars['product']->value->Modelo;?>
 </a>
                     <a class="btn btn-danger" href="delProduct/<?php echo $_smarty_tpl->tpl_vars['product']->value->id_zapatilla;?>
@@ -54,9 +75,25 @@ $_smarty_tpl->tpl_vars['product']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </ul>
-        <h2>Agregar producto</h2>
+
+    <h2>Agregar producto</h2>
     <form class="prodForm" action="addProduct" method="post">
-        <input placeholder="Marca" type="text" name="Marca" id="marca" required>
+    
+        <select name="Marca" required>
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['marcas']->value, 'marca');
+$_smarty_tpl->tpl_vars['marca']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['marca']->value) {
+$_smarty_tpl->tpl_vars['marca']->do_else = false;
+?>
+            <option value="<?php echo $_smarty_tpl->tpl_vars['marca']->value->id_marca;?>
+"><?php echo $_smarty_tpl->tpl_vars['marca']->value->Nombre;?>
+</option>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+        </select>
+    
         <input placeholder="Modelo" type="text" name="Modelo" id="modelo" required>
         <input placeholder="Precio" type="number" name="Precio" id="precio" required>
         <p id="prodStock">Stock= <input type="checkbox" name="stock" id="stock"></p>

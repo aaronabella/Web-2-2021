@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2021 a las 20:59:42
+-- Tiempo de generación: 11-10-2021 a las 23:10:19
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -20,19 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `db_gordodrops`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `marca`
---
-
-CREATE TABLE `marca` (
-  `id_marca` int(11) NOT NULL,
-  `Nombre` varchar(15) DEFAULT NULL,
-  `Descripcion` varchar(100) DEFAULT NULL,
-  `Gama` int(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -63,8 +50,7 @@ CREATE TABLE `zapatillas` (
   `id_zapatilla` int(11) NOT NULL,
   `Modelo` varchar(30) DEFAULT NULL,
   `Precio` int(11) DEFAULT NULL,
-  `Estilo` varchar(30) DEFAULT NULL,
-  `Marca` varchar(30) DEFAULT NULL,
+  `id_marca` int(11) DEFAULT NULL,
   `Stock` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -72,21 +58,16 @@ CREATE TABLE `zapatillas` (
 -- Volcado de datos para la tabla `zapatillas`
 --
 
-INSERT INTO `zapatillas` (`id_zapatilla`, `Modelo`, `Precio`, `Estilo`, `Marca`, `Stock`) VALUES
-(2, 'Jordan 24', 155, 'Urbano', 'Nike', 1),
-(7, 'Superstar', 280, 'Urbano', 'Adidas', 1),
-(8, '327', 540, 'Urbano', 'NewBalance', 0),
-(9, 'Rippler', 250, 'Deportivas', 'Fila', 0);
+INSERT INTO `zapatillas` (`id_zapatilla`, `Modelo`, `Precio`, `id_marca`, `Stock`) VALUES
+(2, 'Jordan 24', 155, 1, 0),
+(7, 'Superstar', 280, 2, 0),
+(8, '327', 540, 3, 0),
+(9, 'Rippler', 250, 4, 0),
+(17, '456', 654, 3, 0);
 
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `marca`
---
-ALTER TABLE `marca`
-  ADD PRIMARY KEY (`id_marca`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -105,12 +86,6 @@ ALTER TABLE `zapatillas`
 --
 
 --
--- AUTO_INCREMENT de la tabla `marca`
---
-ALTER TABLE `marca`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -120,7 +95,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `zapatillas`
 --
 ALTER TABLE `zapatillas`
-  MODIFY `id_zapatilla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_zapatilla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

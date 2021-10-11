@@ -1,7 +1,7 @@
 {include file='templates/header.tpl'}
 
 <div class="container">
-    <h1 class="mb-4">{$product->Marca} {$product->Modelo}</h1>
+    <h1 class="mb-4">{$product->marca} {$product->Modelo}</h1>
     <h2>Descripcion: {$product->Modelo}</h2>
     <h2>Finalizada: {$product->Precio}</h2>
     <h2>Stock: 

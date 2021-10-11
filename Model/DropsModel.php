@@ -9,14 +9,22 @@ class DropsModel{
     }
 
     function getProducts(){
-        $query = $this->db->prepare( "select * from zapatillas");
+        $query = $this->db->prepare( "SELECT zapatillas.*, marcas.Nombre as marca from zapatillas join marcas on zapatillas.id_marca= marcas.id_marca");
         $query->execute();
         $products = $query->fetchAll(PDO::FETCH_OBJ);
         return $products;
-    } 
+    }
+
+    function getProductsFilter($filter){
+        $query = $this->db->prepare( "SELECT zapatillas.*, marcas.Nombre as marca from zapatillas join marcas on zapatillas.id_marca= marcas.id_marca where zapatillas.id_marca=$filter");
+        $query->execute();
+        $products = $query->fetchAll(PDO::FETCH_OBJ);
+        return $products;
+    }
+    
 
     function addProduct($marca,$modelo,$precio,$stock){
-        $query = $this->db->prepare("INSERT INTO zapatillas(Marca, Modelo, Precio, Stock) VALUES(?, ?, ?, ?)");
+        $query = $this->db->prepare("INSERT INTO zapatillas(id_marca, Modelo, Precio, Stock) VALUES(?, ?, ?, ?)");
         $query->execute(array($marca,$modelo,$precio,$stock));
 
     }
@@ -27,7 +35,7 @@ class DropsModel{
     }
     function getSneakers($id){
 
-        $query = $this->db->prepare( "select * from zapatillas WHERE id_zapatilla=?");
+        $query = $this->db->prepare( "SELECT zapatillas.*, marcas.Nombre as marca from zapatillas join marcas on zapatillas.id_marca= marcas.id_marca WHERE id_zapatilla=?");
         $query->execute(array($id));
         $zapatilla = $query->fetch(PDO::FETCH_OBJ);
         return $zapatilla;
@@ -38,6 +46,13 @@ class DropsModel{
         $query = $this->db->prepare("UPDATE zapatillas SET Stock=$updAct WHERE id_zapatilla=?");
         $query->execute(array($id));
 
+    }
+
+    function getMarcas(){
+        $query = $this->db->prepare( "select * from marcas");
+        $query->execute();
+        $marcas = $query->fetchAll(PDO::FETCH_OBJ);
+        return $marcas;
     }
 
 

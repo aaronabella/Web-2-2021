@@ -16,9 +16,17 @@ class DropsController{
     }
     
     function showProducts(){
-        /* $marcas=$this->model->getMarcas()*/
-        $products = $this->model->getProducts();
-        $this->view->showProducts(/*$marcas*/$products);
+        if (!isset ($_POST['marcaFilter'])||($_POST['marcaFilter']=="all")) {
+            $products = $this->model->getProducts();
+        }
+        else{
+            $filter=$_POST['marcaFilter'];
+            $products = $this->model->getProductsFilter($filter);
+            
+        }
+        
+        $marcas=$this->model->getMarcas();    
+        $this->view->showProducts($marcas, $products);
     }
     
     function dropProduct($id){
@@ -35,7 +43,7 @@ class DropsController{
         }
 
         $this->model->addProduct($_POST['Marca'], $_POST['Modelo'],$_POST['Precio'], $stock);
-        $this->view->showHome();
+        $this->view->showHome($_POST['marcaFilter']);
 
     }
 
@@ -57,6 +65,7 @@ class DropsController{
         $this->view->showHome();
 
     }
+
 
 
 }
