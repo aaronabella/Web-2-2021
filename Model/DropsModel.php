@@ -34,5 +34,11 @@ class DropsModel{
 
     }
 
+    function updateProduct($updAct, $id){
+        $query = $this->db->prepare("UPDATE zapatillas SET Stock=$updAct WHERE id_zapatilla=?");
+        $query->execute(array($id));
+
+    }
+
 
 }

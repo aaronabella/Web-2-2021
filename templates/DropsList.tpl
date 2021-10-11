@@ -7,10 +7,10 @@
                     <a href="dropProduct/{$product->id_zapatilla}">{$product->Marca} {$product->Modelo}</a>
                     <a class="btn btn-danger" href="delProduct/{$product->id_zapatilla}">Borrar</a> 
                     {if $product->Stock==0}
-                        <a class="btn btn-warning" href="updateProduct/addStock{$product->id_zapatilla}">Agregar Stock</a>
+                        <a class="btn btn-warning" href="updateProduct/addStock/{$product->id_zapatilla}">Agregar Stock</a>
                     {else}
                         
-                    <a class="btn btn-warning" href="updateProduct/delStock{$product->id_zapatilla}">Quitar Stock</a>                    
+                    <a class="btn btn-warning" href="updateProduct/delStock/{$product->id_zapatilla}">Quitar Stock</a>                    
                     {/if} 
                 </li>
             {/foreach}

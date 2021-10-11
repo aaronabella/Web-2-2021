@@ -14,10 +14,15 @@ class DropsController{
         $this->view = new DropsView();
         $this->logHelper = new logHelper();
     }
-
+    
     function showProducts(){
         $products = $this->model->getProducts();
         $this->view->showProducts($products);
+    }
+    
+    function dropProduct($id){
+        $product = $this-> model-> getSneakers($id);
+        $this->view->showProduct($product); 
     }
     
     function addProduct(){
@@ -39,15 +44,18 @@ class DropsController{
         $this->view->showHome();
     }
 
-    function updateProduct($id){
+    function updateProduct($updAct, $id){
         $this->logHelper->checkLogIn();
-        $this->model->updateProduct($id);
+        if ($updAct=="addStock") {
+            $updAct=1;
+        }
+        else{
+            $updAct=0;
+        }
+        $this->model->updateProduct($updAct, $id);
         $this->view->showHome();
 
     }
 
-    function dropProduct($id){
-        $product = $this-> model-> getSneakers($id);
-        $this->view->showProduct($product); 
-    }   
+
 }
