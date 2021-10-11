@@ -16,8 +16,9 @@ class DropsController{
     }
     
     function showProducts(){
+        /* $marcas=$this->model->getMarcas()*/
         $products = $this->model->getProducts();
-        $this->view->showProducts($products);
+        $this->view->showProducts(/*$marcas*/$products);
     }
     
     function dropProduct($id){

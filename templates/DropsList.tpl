@@ -18,7 +18,15 @@
     {*CAMBIAR MARCA POR NOMBRE DE MARCA POR INNERJOIN*}
     <h2>Agregar producto</h2>
     <form class="prodForm" action="addProduct" method="post">
-        <input placeholder="Marca" type="text" name="Marca" id="marca" required>
+    {*
+    <select required>
+        {foreach from=$marcas item=$marca}
+        <option value="{$marca->id_marca}">{$marca->Nombre}</option>
+        {/foreach}
+    </select>
+    
+    *}
+        <input placeholder="Marca" type="text" name="Marca" id="marca" required>{*ELIMINAR ESTA LINEA*}
         <input placeholder="Modelo" type="text" name="Modelo" id="modelo" required>
         <input placeholder="Precio" type="number" name="Precio" id="precio" required>
         <p id="prodStock">Stock= <input type="checkbox" name="stock" id="stock"></p>
