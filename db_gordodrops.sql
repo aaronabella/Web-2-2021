@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-09-2021 a las 22:24:10
+-- Tiempo de generación: 11-10-2021 a las 20:59:42
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -64,16 +64,19 @@ CREATE TABLE `zapatillas` (
   `Modelo` varchar(30) DEFAULT NULL,
   `Precio` int(11) DEFAULT NULL,
   `Estilo` varchar(30) DEFAULT NULL,
-  `Marca` varchar(30) DEFAULT NULL
+  `Marca` varchar(30) DEFAULT NULL,
+  `Stock` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `zapatillas`
 --
 
-INSERT INTO `zapatillas` (`id_zapatilla`, `Modelo`, `Precio`, `Estilo`, `Marca`) VALUES
-(1, 'Jordan 1 Tie Dye', 300, 'Urbano', 'Nike'),
-(2, 'Jordan 24', 155, 'Urbano', 'Nike');
+INSERT INTO `zapatillas` (`id_zapatilla`, `Modelo`, `Precio`, `Estilo`, `Marca`, `Stock`) VALUES
+(2, 'Jordan 24', 155, 'Urbano', 'Nike', 1),
+(7, 'Superstar', 280, 'Urbano', 'Adidas', 1),
+(8, '327', 540, 'Urbano', 'NewBalance', 0),
+(9, 'Rippler', 250, 'Deportivas', 'Fila', 0);
 
 --
 -- Índices para tablas volcadas
@@ -117,7 +120,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `zapatillas`
 --
 ALTER TABLE `zapatillas`
-  MODIFY `id_zapatilla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_zapatilla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
