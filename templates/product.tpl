@@ -5,7 +5,12 @@
     <h2>Descripcion: {$product->Modelo}</h2>
     <h2>Prioridad: {$product->Estilo}</h2>
     <h2>Finalizada: {$product->Precio}</h2>
-    <h2>anashe: {$product->Stock}</h2>
+    <h2>Stock: 
+    {if $product->Stock==0}
+        No disponible
+        {else}
+            Disponible
+    {/if}</h2>
 
     <a class="btn btn-outline-light" href="home" > Volver </a>
 </div>
