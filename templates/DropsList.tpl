@@ -15,12 +15,11 @@
                 </li>
             {/foreach}
     </ul>
-
+    {*CAMBIAR MARCA POR NOMBRE DE MARCA POR INNERJOIN*}
     <h2>Agregar producto</h2>
     <form class="prodForm" action="addProduct" method="post">
         <input placeholder="Marca" type="text" name="Marca" id="marca" required>
         <input placeholder="Modelo" type="text" name="Modelo" id="modelo" required>
-        <input placeholder="Estilo" type="text" name="Estilo" id="estilo" required> 
         <input placeholder="Precio" type="number" name="Precio" id="precio" required>
         <p id="prodStock">Stock= <input type="checkbox" name="stock" id="stock"></p>
         <input type="submit" class="btn btn-primary" value="Agregar">

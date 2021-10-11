@@ -3,7 +3,6 @@
 <div class="container">
     <h1 class="mb-4">{$product->Marca} {$product->Modelo}</h1>
     <h2>Descripcion: {$product->Modelo}</h2>
-    <h2>Prioridad: {$product->Estilo}</h2>
     <h2>Finalizada: {$product->Precio}</h2>
     <h2>Stock: 
     {if $product->Stock==0}

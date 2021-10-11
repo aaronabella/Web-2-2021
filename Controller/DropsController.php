@@ -24,7 +24,7 @@ class DropsController{
         $product = $this-> model-> getSneakers($id);
         $this->view->showProduct($product); 
     }
-    
+
     function addProduct(){
         $this->logHelper->checkLogIn();
         if(!isset($_POST['stock'])){
@@ -33,7 +33,7 @@ class DropsController{
             $stock = 1;
         }
 
-        $this->model->addProduct($_POST['Marca'], $_POST['Modelo'], $_POST['Estilo'], $_POST['Precio'], $stock);
+        $this->model->addProduct($_POST['Marca'], $_POST['Modelo'],$_POST['Precio'], $stock);
         $this->view->showHome();
 
     }
