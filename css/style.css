@@ -11,7 +11,7 @@
 }
 body {
   background-image: url(../images/duko.jpg);
-  background-size: cover;
+  background-size: 100%;
   background-color: 0.5;
 }
 
