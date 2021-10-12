@@ -65,7 +65,39 @@ class DropsController{
         $this->view->showHome();
 
     }
+    function deleteMarca($id){
+        $this->authHelper->checkLoggedIn();
 
+        $this->model->deleteMarca($id);
+        $this->view->showHome();
+    }
+
+    function updateMarca($id){
+        $this->authHelper->checkLoggedIn();
+
+        $this->model->updateMarca($id);
+        $this->view->showHome();
+    }
+
+    function addMarca(){
+        $this->logHelper->checkLogIn();
+        if(!isset($_POST['addMarca'])){
+            $nuevaMarca = 0;
+        }else{
+            $nuevaMarca = 1;
+        }
+
+        $this->model->addMarca($_POST['Marca'], $nuevaMarca);
+        $this->view->showHome($_POST['marcaFilter']);
+
+    }
+    
+    function showMarcas(){
+        $marcas = $this->model->getMarcas();
+        $this->view->showMarcas($marcas);
+        
+
+    }
 
 
 }

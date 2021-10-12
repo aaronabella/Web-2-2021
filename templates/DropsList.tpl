@@ -42,6 +42,14 @@
         <input type="submit" class="btn btn-primary" value="Agregar">
     </form>
 
+    <h3>Agregar Marca</h3>
+    <form class="marcaForm" action="addMarca" method="post">
+     
+     <input placeholder="Ingrese nueva Marca" type="text" name="nuevaMarca" id="nuevaMarca" required>
+     <input type="submit" class="btn btn-primary" value="Agregar">
+    </form>
+
+
 
  
    

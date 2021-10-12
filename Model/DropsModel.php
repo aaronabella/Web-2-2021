@@ -54,6 +54,21 @@ class DropsModel{
         $marcas = $query->fetchAll(PDO::FETCH_OBJ);
         return $marcas;
     }
+    function addMarca($marca){
+        $query = $this->db->prepare("INSERT INTO zapatillas(id_marca) VALUE(?)");
+        $query->execute(array($marca));
+
+    }
+
+    function delMarcas(){
+        $query = $this->db->prepare("DELETE from zapatillas WHERE id_marca=?");
+        $query = $this->execute(array($id));
+    }
+
+    function updateMarca($newName, $id){
+        $query = $this->db->prepare("UPDATE marcas SET nombre= $newName  WHERE id_marca=?");
+        $query->execute(array($id));
+    }
 
 
 }
