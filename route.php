@@ -45,6 +45,9 @@ switch ($params[0]) {
     case 'dropProduct': 
         $dropsController->dropProduct($params[1]); 
         break;
+    case 'addMarca':
+        $dropsController-> addMarca();
+        break;
     default: 
     echo('404 Page not found'); 
     break;

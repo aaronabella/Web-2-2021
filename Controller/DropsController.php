@@ -81,13 +81,9 @@ class DropsController{
 
     function addMarca(){
         $this->logHelper->checkLogIn();
-        if(!isset($_POST['addMarca'])){
-            $nuevaMarca = 0;
-        }else{
-            $nuevaMarca = 1;
-        }
+      
 
-        $this->model->addMarca($_POST['Marca'], $nuevaMarca);
+        $this->model->addMarca($_POST['nuevaMarca']);
         $this->view->showHome($_POST['marcaFilter']);
 
     }

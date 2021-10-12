@@ -55,7 +55,7 @@ class DropsModel{
         return $marcas;
     }
     function addMarca($marca){
-        $query = $this->db->prepare("INSERT INTO zapatillas(id_marca) VALUE(?)");
+        $query = $this->db->prepare("INSERT INTO marcas(Nombre) VALUE(?)");
         $query->execute(array($marca));
 
     }
