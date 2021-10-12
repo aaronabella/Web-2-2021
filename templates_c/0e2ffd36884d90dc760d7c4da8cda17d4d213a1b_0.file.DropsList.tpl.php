@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-12 22:28:08
+/* Smarty version 3.1.39, created on 2021-10-13 01:06:20
   from 'C:\xampp\htdocs\Drops\templates\DropsList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6165efd819ce61_37624774',
+  'unifunc' => 'content_616614ec51ee95_22221498',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0e2ffd36884d90dc760d7c4da8cda17d4d213a1b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Drops\\templates\\DropsList.tpl',
-      1 => 1634070084,
+      1 => 1634079979,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6165efd819ce61_37624774 (Smarty_Internal_Template $_smarty_tpl) {
+function content_616614ec51ee95_22221498 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender('file:templates/Navbar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -110,6 +110,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </div>
     <div>
         <h3>Borrar Marca</h3>
+        <p class="btn-warning"> AL BORRAR UNA MARCA; SE ELIMINARAN TODOS LOS PRODUCTOS RELACIONADOS</p> 
         <form class="marcaForm" action="delMarca" method="post">
             <select name="marcaDel" required>
                 <?php

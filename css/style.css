@@ -41,3 +41,9 @@ h3,h2{
   width: fit-content;
   background-color: white;
 }
+.prodContainer{
+  border-radius: 10%;
+  background-color: azure;
+  width: fit-content;
+  padding: 10px;
+}

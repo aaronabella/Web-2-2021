@@ -52,6 +52,7 @@
     </div>
     <div>
         <h3>Borrar Marca</h3>
+        <p class="btn-warning"> AL BORRAR UNA MARCA; SE ELIMINARAN TODOS LOS PRODUCTOS RELACIONADOS</p> 
         <form class="marcaForm" action="delMarca" method="post">
             <select name="marcaDel" required>
                 {foreach from=$marcas item=$marca}
