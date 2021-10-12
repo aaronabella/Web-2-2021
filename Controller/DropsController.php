@@ -43,7 +43,7 @@ class DropsController{
         }
 
         $this->model->addProduct($_POST['Marca'], $_POST['Modelo'],$_POST['Precio'], $stock);
-        $this->view->showHome($_POST['marcaFilter']);
+        $this->view->showHome();
 
     }
 
@@ -65,17 +65,25 @@ class DropsController{
         $this->view->showHome();
 
     }
-    function deleteMarca($id){
-        $this->authHelper->checkLoggedIn();
+    function delMarca(){
+        $this->logHelper->checkLogIn();
+        if (isset($_POST['marcaDel'])) {
+            $id=$_POST['marcaDel'];
+            $this->model->delMarca($id);
+        }
 
-        $this->model->deleteMarca($id);
+        
         $this->view->showHome();
     }
 
-    function updateMarca($id){
-        $this->authHelper->checkLoggedIn();
+    function updateMarca(){
+        $this->logHelper->checkLogIn();
+        if (isset($_POST['marcaUpdate'])) {
+            $id=$_POST['marcaUpdate'];
+            $this->model->updateMarca($_POST['newName'],$id);
+        }
 
-        $this->model->updateMarca($id);
+        
         $this->view->showHome();
     }
 
@@ -84,14 +92,7 @@ class DropsController{
       
 
         $this->model->addMarca($_POST['nuevaMarca']);
-        $this->view->showHome($_POST['marcaFilter']);
-
-    }
-    
-    function showMarcas(){
-        $marcas = $this->model->getMarcas();
-        $this->view->showMarcas($marcas);
-        
+        $this->view->showHome();
 
     }
 

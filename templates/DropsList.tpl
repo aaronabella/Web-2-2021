@@ -42,13 +42,40 @@
         <input type="submit" class="btn btn-primary" value="Agregar">
     </form>
 
-    <h3>Agregar Marca</h3>
-    <form class="marcaForm" action="addMarca" method="post">
+<div id="marcaCont">
+    <div>
+        <h3>Agregar Marca</h3>
+        <form class="marcaForm" action="addMarca" method="post">
+            <input placeholder="Ingrese nueva Marca" type="text" name="nuevaMarca" id="nuevaMarca" required>
+            <input type="submit" class="btn btn-primary" value="Agregar">
+        </form>
+    </div>
+    <div>
+        <h3>Borrar Marca</h3>
+        <form class="marcaForm" action="delMarca" method="post">
+            <select name="marcaDel" required>
+                {foreach from=$marcas item=$marca}
+                <option value="{$marca->id_marca}">{$marca->Nombre}</option>
+                {/foreach}
+            </select>
      
-     <input placeholder="Ingrese nueva Marca" type="text" name="nuevaMarca" id="nuevaMarca" required>
-     <input type="submit" class="btn btn-primary" value="Agregar">
-    </form>
-
+            <input type="submit" class="btn btn-primary" value="Eliminar">
+        </form>
+    </div>
+    <div>
+        <h3>Editar Marca</h3>
+        <form class="marcaForm" action="editMarca" method="post">
+            <select name="marcaUpdate" required>
+                {foreach from=$marcas item=$marca}
+                <option value="{$marca->id_marca}">{$marca->Nombre}</option>
+                {/foreach}
+            </select>
+            <input type="text" name="newName" placeholder="Nuevo Nombre">
+     
+            <input type="submit" class="btn btn-primary" value="Editar">
+        </form>
+    </div>
+<div>
 
 
  

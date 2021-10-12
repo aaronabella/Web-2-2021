@@ -30,8 +30,8 @@ class DropsModel{
     }
 
     function delProduct($id){
-        $sentencia = $this->db->prepare("DELETE FROM zapatillas WHERE id_zapatilla=?");
-        $sentencia->execute(array($id));
+        $query = $this->db->prepare("DELETE FROM zapatillas WHERE id_zapatilla=?");
+        $query->execute(array($id));
     }
     function getSneakers($id){
 
@@ -60,13 +60,13 @@ class DropsModel{
 
     }
 
-    function delMarcas(){
-        $query = $this->db->prepare("DELETE from zapatillas WHERE id_marca=?");
-        $query = $this->execute(array($id));
+    function delMarca($id){
+        $query = $this->db->prepare("DELETE from marcas WHERE id_marca=?");
+        $query->execute(array($id));
     }
 
     function updateMarca($newName, $id){
-        $query = $this->db->prepare("UPDATE marcas SET nombre= $newName  WHERE id_marca=?");
+        $query = $this->db->prepare("UPDATE marcas SET Nombre= '$newName' WHERE id_marca=?");
         $query->execute(array($id));
     }
 

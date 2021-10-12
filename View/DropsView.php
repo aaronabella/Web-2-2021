@@ -27,11 +27,6 @@ class DropsView {
         $this->smarty->display('templates/product.tpl');
 
     }
-    
-    function showMarcas($marcas){
-        $this->smarty->assign('marca', $marcas);
-        $this->smarty->display('templates/marcas.tpl');
-    }
 
     function showLogin(){
         $this->smarty->display('templates/login.tpl');

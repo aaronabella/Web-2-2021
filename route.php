@@ -48,6 +48,12 @@ switch ($params[0]) {
     case 'addMarca':
         $dropsController-> addMarca();
         break;
+    case 'delMarca':
+        $dropsController-> delMarca();
+        break;
+    case 'editMarca':
+        $dropsController-> updateMarca();
+        break;
     default: 
     echo('404 Page not found'); 
     break;
