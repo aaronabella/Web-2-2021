@@ -48,3 +48,11 @@ h2 {
   width: fit-content;
   padding: 10px;
 }
+#filterCont{
+  display: flex;
+  width: fit-content;
+  padding: 10px;
+}
+.warning{
+  background-color: orange;
+}

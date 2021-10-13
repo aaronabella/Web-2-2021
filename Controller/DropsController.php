@@ -16,18 +16,17 @@ class DropsController{
     }
     
     function showProducts(){
-        if (!isset ($_POST['marcaFilter'])||($_POST['marcaFilter']=="all")) {
-            $products = $this->model->getProducts();
-        }
-        else{
-            $filter=$_POST['marcaFilter'];
-            $products = $this->model->getProductsFilter($filter);
-            
-        }
-        
+        $products = $this->model->getProducts();
         $marcas=$this->model->getMarcas();    
         $this->view->showProducts($marcas, $products);
     }
+
+    function showProductsFilter($id){
+        $products = $this->model->getProductsFilter($id);
+        $marcas=$this->model->getMarcas();    
+        $this->view->showProducts($marcas, $products);
+    }
+    
     
     function dropProduct($id){
         $product = $this-> model-> getSneakers($id);

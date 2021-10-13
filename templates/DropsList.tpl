@@ -1,15 +1,17 @@
 {include file='templates/header.tpl'}
 {include file='templates/Navbar.tpl'}
-<form action="home" method="post">
-    <select name="marcaFilter" required>
-            <option value="all">TODO</option>
-            {foreach from=$marcas item=$marca}
-            <option value="{$marca->id_marca}">{$marca->Nombre}</option>
-            {/foreach}
-    </select>
-    <input type="submit" class="btn btn-primary" value="filtrar">
 
-</form>
+<ul id="filterCont">
+    <li class="list-group-item listProduct">
+    <a href="home">Todo</a>
+    </li>
+{foreach from=$marcas item=$marca}
+    <li class="list-group-item listProduct">
+    <a href="homeFilter/{$marca->id_marca}">{$marca->Nombre}</a>
+    </li>
+    
+{/foreach}
+</ul>
 
 {if $logged|default:false }
     <ul class="list-group">
@@ -52,7 +54,7 @@
     </div>
     <div>
         <h3>Borrar Marca</h3>
-        <p class="btn-warning"> AL BORRAR UNA MARCA; SE ELIMINARAN TODOS LOS PRODUCTOS RELACIONADOS</p> 
+        <p class="warning"> AL BORRAR UNA MARCA; SE ELIMINARAN TODOS LOS PRODUCTOS RELACIONADOS</p> 
         <form class="marcaForm" action="delMarca" method="post">
             <select name="marcaDel" required>
                 {foreach from=$marcas item=$marca}

@@ -22,6 +22,9 @@ switch ($params[0]) {
     case 'home': 
         $dropsController->showProducts(); 
         break;
+    case 'homeFilter': 
+        $dropsController->showProductsFilter($params[1]); 
+        break;
 
     case'loginPage':
         $loginController->showLogin();
