@@ -7,6 +7,7 @@ class LoginController {
     private $model;
     private $view;
 
+    //Contructor
     function __construct(){
         $this->model = new UserModel();
         $this->view = new LoginView();
@@ -31,9 +32,7 @@ class LoginController {
             $userName = $_POST['username'];
             $password = $_POST['password'];
 
-
             $user = $this->model->getUser($userName);
-     
 
             if ($user && password_verify($password, $user->password)) {
 

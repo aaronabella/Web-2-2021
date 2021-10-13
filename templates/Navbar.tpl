@@ -5,21 +5,19 @@
       DROPS
     </a>
     <div>
-   {if $logged|default:false }
+    {if $logged|default:false }
      
     <div id="loginBar">
-    <p id="loggedUser">Logged In as = {$username} </p>
-    <a href='logout' class="btn btn-outline-light me-2">Logout</a>
+      <p id="loggedUser">Logged In as = {$username} </p>
+      <a href='logout' class="btn btn-outline-light me-2">Logout</a>
     </div>
    
     {else}
 
-    <a href='loginPage' class="btn btn-outline-light me-2">LogIn</a>
+      <a href='loginPage' class="btn btn-outline-light me-2">LogIn</a>
 
     {/if}
-    </div>
-
-      
+    </div>  
 
   </div>
   

@@ -11,11 +11,11 @@ class DropsView {
 
     function showProducts($marcas, $products){
         session_start();
-        
         if (isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
             $this->smarty->assign('logged', $_SESSION['logged']);
             $this->smarty->assign('username', $_SESSION['username']);     
         }
+        
         $this->smarty->assign('marcas', $marcas);
         $this->smarty->assign('products', $products);
         $this->smarty->display('templates/DropsList.tpl'); 

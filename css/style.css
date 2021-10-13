@@ -1,14 +1,17 @@
 #logo {
   border-radius: 40%;
 }
+
 #loginBar {
   display: flex;
 }
+
 #loggedUser {
   color: white;
   padding-right: 10px;
   margin: auto;
 }
+
 body {
   background-image: url(../images/dukosinaguaxd.png);
   background-size: 100%;
@@ -19,9 +22,11 @@ body {
 li {
   width: fit-content;
 }
+
 .prodForm {
   display: flex;
 }
+
 #prodStock {
   justify-content: center;
   background-color: white;
@@ -30,11 +35,13 @@ li {
   margin: 5px;
   padding: 5px;
 }
+
 #marcaCont {
   display: flex;
   justify-content: space-between;
   padding: 10px;
 }
+
 h3,
 h2 {
   border: solid black 1px;
@@ -42,17 +49,20 @@ h2 {
   width: fit-content;
   background-color: white;
 }
+
 .prodContainer {
   border-radius: 10%;
   background-color: azure;
   width: fit-content;
   padding: 10px;
 }
+
 #filterCont{
   display: flex;
   width: fit-content;
   padding: 10px;
 }
+
 .warning{
   background-color: orange;
 }

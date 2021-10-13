@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2021 a las 21:18:44
+-- Tiempo de generación: 13-10-2021 a las 22:37:23
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -40,7 +40,8 @@ INSERT INTO `marcas` (`id_marca`, `Nombre`) VALUES
 (1, 'Nike'),
 (2, 'Adidas'),
 (3, 'New Balance'),
-(4, 'FILA');
+(4, 'FILA'),
+(15, 'Prueba');
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,9 @@ INSERT INTO `zapatillas` (`id_zapatilla`, `Modelo`, `Precio`, `id_marca`, `Stock
 (7, 'Superstar', 280, 2, 0),
 (8, '327', 540, 3, 0),
 (9, 'Rippler', 250, 4, 0),
-(17, '456', 654, 3, 0);
+(17, '456', 654, 3, 0),
+(23, 'VAPORMAX', 654, 1, 0),
+(30, 'Insta', 123, 15, 0);
 
 --
 -- Índices para tablas volcadas
@@ -106,7 +109,8 @@ ALTER TABLE `usuarios`
 -- Indices de la tabla `zapatillas`
 --
 ALTER TABLE `zapatillas`
-  ADD PRIMARY KEY (`id_zapatilla`);
+  ADD PRIMARY KEY (`id_zapatilla`),
+  ADD KEY `id_marca` (`id_marca`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -116,7 +120,7 @@ ALTER TABLE `zapatillas`
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -128,7 +132,17 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `zapatillas`
 --
 ALTER TABLE `zapatillas`
-  MODIFY `id_zapatilla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_zapatilla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `zapatillas`
+--
+ALTER TABLE `zapatillas`
+  ADD CONSTRAINT `zapatillas_ibfk_1` FOREIGN KEY (`id_marca`) REFERENCES `marcas` (`id_marca`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

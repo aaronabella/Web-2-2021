@@ -1,6 +1,7 @@
 {include file='templates/header.tpl'}
 {include file='templates/Navbar.tpl'}
 
+{*Filtro y Lista de Marcas*}
 <ul id="filterCont">
     <li class="list-group-item listProduct">
     <a href="home">Todo</a>
@@ -13,22 +14,28 @@
 {/foreach}
 </ul>
 
+{*Chequea si esta Logeado*}
 {if $logged|default:false }
+
+    {*Lista de Productos*}
     <ul class="list-group">
             {foreach from=$products item=$product}
                 <li class="list-group-item listProduct">
                     <a href="dropProduct/{$product->id_zapatilla}">{$product->marca} {$product->Modelo}</a>
+                    {*Borrar Producto*}
                     <a class="btn btn-danger" href="delProduct/{$product->id_zapatilla}">Borrar</a> 
+                    {*Editar Producto segun stock*}
                     {if $product->Stock==0}
                         <a class="btn btn-warning" href="updateProduct/addStock/{$product->id_zapatilla}">Agregar Stock</a>
                     {else}
                         
-                    <a class="btn btn-warning" href="updateProduct/delStock/{$product->id_zapatilla}">Quitar Stock</a>                    
+                        <a class="btn btn-warning" href="updateProduct/delStock/{$product->id_zapatilla}">Quitar Stock</a>                    
                     {/if} 
                 </li>
             {/foreach}
     </ul>
 
+    {*Agregar Productos*}
     <h2>Agregar producto</h2>
     <form class="prodForm" action="addProduct" method="post">
     
@@ -44,59 +51,56 @@
         <input type="submit" class="btn btn-primary" value="Agregar">
     </form>
 
-<div id="marcaCont">
-    <div>
-        <h3>Agregar Marca</h3>
-        <form class="marcaForm" action="addMarca" method="post">
-            <input placeholder="Ingrese nueva Marca" type="text" name="nuevaMarca" id="nuevaMarca" required>
-            <input type="submit" class="btn btn-primary" value="Agregar">
-        </form>
-    </div>
-    <div>
-        <h3>Borrar Marca</h3>
-        <p class="warning"> AL BORRAR UNA MARCA; SE ELIMINARAN TODOS LOS PRODUCTOS RELACIONADOS</p> 
-        <form class="marcaForm" action="delMarca" method="post">
-            <select name="marcaDel" required>
-                {foreach from=$marcas item=$marca}
-                <option value="{$marca->id_marca}">{$marca->Nombre}</option>
-                {/foreach}
-            </select>
+    {*Controlador de Marcas*}
+    <div id="marcaCont">
+        <div>
+            <h3>Agregar Marca</h3>
+            <form class="marcaForm" action="addMarca" method="post">
+                <input placeholder="Ingrese nueva Marca" type="text" name="nuevaMarca" id="nuevaMarca" required>
+                <input type="submit" class="btn btn-primary" value="Agregar">
+            </form>
+        </div>
+
+        <div>
+            <h3>Borrar Marca</h3>
+            <p class="warning"> AL BORRAR UNA MARCA; SE ELIMINARAN TODOS LOS PRODUCTOS RELACIONADOS</p> 
+            <form class="marcaForm" action="delMarca" method="post">
+                <select name="marcaDel" required>
+                    {foreach from=$marcas item=$marca}
+                    <option value="{$marca->id_marca}">{$marca->Nombre}</option>
+                    {/foreach}
+                </select>
      
-            <input type="submit" class="btn btn-primary" value="Eliminar">
-        </form>
-    </div>
+                <input type="submit" class="btn btn-primary" value="Eliminar">
+            </form>
+        </div>
+        
+        <div>
+            <h3>Editar Marca</h3>
+            <form class="marcaForm" action="editMarca" method="post">
+                <select name="marcaUpdate" required>
+                    {foreach from=$marcas item=$marca}
+                        <option value="{$marca->id_marca}">{$marca->Nombre}</option>
+                    {/foreach}
+                </select>
+                <input type="text" name="newName" placeholder="Nuevo Nombre">
+                <input type="submit" class="btn btn-primary" value="Editar">
+            </form>
+        </div>
     <div>
-        <h3>Editar Marca</h3>
-        <form class="marcaForm" action="editMarca" method="post">
-            <select name="marcaUpdate" required>
-                {foreach from=$marcas item=$marca}
-                <option value="{$marca->id_marca}">{$marca->Nombre}</option>
-                {/foreach}
-            </select>
-            <input type="text" name="newName" placeholder="Nuevo Nombre">
-     
-            <input type="submit" class="btn btn-primary" value="Editar">
-        </form>
-    </div>
-<div>
 
 
  
-   
+   {*Lista de Productos Sin Logear*}
     {else}
-      <ul class="list-group">
+        <ul class="list-group">
             {foreach from=$products item=$product}
                 <li class="list-group-item listProduct">
                     <a href="dropProduct/{$product->id_zapatilla}">{$product->marca} {$product->Modelo}</a>                          
                 </li>
             {/foreach}
-    </ul>
+        </ul>
    
-    
     {/if}
-
-
-
-
 
 {include file='templates/footer.tpl'}

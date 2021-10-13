@@ -14,24 +14,27 @@ class DropsController{
         $this->view = new DropsView();
         $this->logHelper = new logHelper();
     }
-    
+    //Ver Productos
     function showProducts(){
         $products = $this->model->getProducts();
         $marcas=$this->model->getMarcas();    
         $this->view->showProducts($marcas, $products);
     }
 
+    //Ver Productos por Filtro
     function showProductsFilter($id){
         $products = $this->model->getProductsFilter($id);
         $marcas=$this->model->getMarcas();    
         $this->view->showProducts($marcas, $products);
     }
     
-    
+    //Ver Producto Individual
     function dropProduct($id){
         $product = $this-> model-> getSneakers($id);
         $this->view->showProduct($product); 
     }
+
+    //Controller de Productos
 
     function addProduct(){
         $this->logHelper->checkLogIn();
@@ -40,10 +43,8 @@ class DropsController{
         }else{
             $stock = 1;
         }
-
         $this->model->addProduct($_POST['Marca'], $_POST['Modelo'],$_POST['Precio'], $stock);
         $this->view->showHome();
-
     }
 
     function delProduct($id){
@@ -64,14 +65,15 @@ class DropsController{
         $this->view->showHome();
 
     }
+
+    //Controller de Marcas
+
     function delMarca(){
         $this->logHelper->checkLogIn();
         if (isset($_POST['marcaDel'])) {
             $id=$_POST['marcaDel'];
             $this->model->delMarca($id);
-        }
-
-        
+        } 
         $this->view->showHome();
     }
 
@@ -81,18 +83,13 @@ class DropsController{
             $id=$_POST['marcaUpdate'];
             $this->model->updateMarca($_POST['newName'],$id);
         }
-
-        
         $this->view->showHome();
     }
 
     function addMarca(){
         $this->logHelper->checkLogIn();
-      
-
         $this->model->addMarca($_POST['nuevaMarca']);
         $this->view->showHome();
-
     }
 
 
