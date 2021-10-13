@@ -10,19 +10,19 @@
   margin: auto;
 }
 body {
-  background-image: url(../images/duko.jpg);
+  background-image: url(../images/dukosinaguaxd.png);
   background-size: 100%;
   background-color: 0.5;
+  opacity: 90%;
 }
 
-li{
+li {
   width: fit-content;
 }
-.prodForm{
+.prodForm {
   display: flex;
-  
 }
-#prodStock{
+#prodStock {
   justify-content: center;
   background-color: white;
   border: solid lightgray 1px;
@@ -30,18 +30,19 @@ li{
   margin: 5px;
   padding: 5px;
 }
-#marcaCont{
+#marcaCont {
   display: flex;
   justify-content: space-between;
   padding: 10px;
 }
-h3,h2{
+h3,
+h2 {
   border: solid black 1px;
   border-radius: 5%;
   width: fit-content;
   background-color: white;
 }
-.prodContainer{
+.prodContainer {
   border-radius: 10%;
   background-color: azure;
   width: fit-content;

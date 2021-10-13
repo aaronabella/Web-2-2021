@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-12 22:40:05
+/* Smarty version 3.1.39, created on 2021-10-13 05:59:56
   from 'C:\xampp\htdocs\web2\TPE-Beta1\templates\DropsList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6165f2a58e8fb6_16323881',
+  'unifunc' => 'content_616659bc16c239_41700980',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0bd7bfd2a28e0402d6cb83bb77a37b8a401ebcee' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE-Beta1\\templates\\DropsList.tpl',
-      1 => 1634071191,
+      1 => 1634097592,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6165f2a58e8fb6_16323881 (Smarty_Internal_Template $_smarty_tpl) {
+function content_616659bc16c239_41700980 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender('file:templates/Navbar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -110,6 +110,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </div>
     <div>
         <h3>Borrar Marca</h3>
+        <p class="btn-warning"> AL BORRAR UNA MARCA; SE ELIMINARAN TODOS LOS PRODUCTOS RELACIONADOS</p> 
         <form class="marcaForm" action="delMarca" method="post">
             <select name="marcaDel" required>
                 <?php
@@ -165,7 +166,7 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['product']->value
 $_smarty_tpl->tpl_vars['product']->do_else = false;
 ?>
                 <li class="list-group-item listProduct">
-                    <a href="dropsProduct/<?php echo $_smarty_tpl->tpl_vars['product']->value->id_zapatilla;?>
+                    <a href="dropProduct/<?php echo $_smarty_tpl->tpl_vars['product']->value->id_zapatilla;?>
 "><?php echo $_smarty_tpl->tpl_vars['product']->value->marca;?>
  <?php echo $_smarty_tpl->tpl_vars['product']->value->Modelo;?>
 </a>                          

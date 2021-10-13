@@ -85,7 +85,7 @@
       <ul class="list-group">
             {foreach from=$products item=$product}
                 <li class="list-group-item listProduct">
-                    <a href="dropsProduct/{$product->id_zapatilla}">{$product->marca} {$product->Modelo}</a>                          
+                    <a href="dropProduct/{$product->id_zapatilla}">{$product->marca} {$product->Modelo}</a>                          
                 </li>
             {/foreach}
     </ul>
