@@ -32,20 +32,28 @@ class LoginController {
             $userName = $_POST['username'];
             $password = $_POST['password'];
 
-            $user = $this->model->getUser($userName);
-
-            if ($user && password_verify($password, $user->password)) {
-
-                session_start();
-                $_SESSION["logged"] = true;
-                $_SESSION["username"] = $userName;
-                
-                $this->view->showHome();
-            } else {
-                $_SESSION["logged"] = false;
-                $this->view->showLogin();
-            }
+            $this->login($userName, $password);  
+            
         }
     }
+
+    function login($userName, $password){
+        $user = $this->model->getUser($userName);
+
+        if ($user && password_verify($password, $user->password)) {
+
+            session_start();
+            $_SESSION["logged"] = true;
+            $_SESSION["admin"]=$user->admin;
+            $_SESSION["username"] = $user->username;
+            
+            $this->view->showHome();
+        } else {
+            $_SESSION["logged"] = false;
+            $this->view->showLogin();
+        }
+    }
+
+
 
 }

@@ -1,12 +1,12 @@
 {include file='templates/header.tpl'}
 {include file='templates/Navbar.tpl'}
 
-    <form method='POST' action='login'>
+    <h1>Crear una Cuenta</h1>
+    <form action="register" method="post">
         <input type='text' name='username' placeholder='Username' id='username' required>
         <input type='password' name='password' placeholder='Password' id='password' required>
-        <input type='submit' class='btn btn-success' value='Login'>
+        <input type='submit' class='btn btn-success' value='Crear'>
     </form>
-    <a href="registerPage">Registrarse</a>
-    
+
 
 {include file='templates/footer.tpl'}

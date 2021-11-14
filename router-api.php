@@ -3,7 +3,7 @@
 require_once 'libs/Router.php';
 require_once 'Controller/ApiDropsController.php';
 
-$router = new Router():
+$router = new Router();
 
 $router-> addroute();
 $router-> addroute();

@@ -1,6 +1,9 @@
 <?php
 require_once "Controller/DropsController.php";
 require_once "Controller/LoginController.php";
+require_once "Controller/BrandController.php";
+require_once "Controller/RegisterController.php";
+
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -17,6 +20,8 @@ $params = explode('/', $action);
 
 $dropsController= new DropsController();
 $loginController= new LoginController();
+$brandController= new BrandController();
+$registerController= new RegisterController();
 
 switch ($params[0]) {
     case 'home': 
@@ -33,9 +38,18 @@ switch ($params[0]) {
     case 'logout':
         $loginController->dropsLogout();
         break;
+
     case 'login':
         $loginController->dropsLogin();
         break;
+
+    case 'registerPage':
+        $registerController->showRegister();
+        break;
+    case 'register':
+        $registerController->dropsRegister();
+        break;
+
     case 'addProduct': 
         $dropsController->addProduct(); 
         break;

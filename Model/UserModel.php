@@ -14,5 +14,10 @@ class UserModel{
         
     }
 
+    function registerUser($userName, $password){
+       $query = $this->db->prepare('INSERT INTO usuarios (username, password) VALUES (? , ?)');
+       $query->execute([$userName, $password]);
+    }
+
 
 }

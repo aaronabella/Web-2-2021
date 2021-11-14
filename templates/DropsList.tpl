@@ -15,7 +15,7 @@
 </ul>
 
 {*Chequea si esta Logeado*}
-{if $logged|default:false }
+{if $admin|default:false }
 
     {*Lista de Productos*}
     <ul class="list-group">
