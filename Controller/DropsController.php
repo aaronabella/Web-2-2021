@@ -24,7 +24,7 @@ class DropsController{
     //Ver Productos por Filtro
     function showProductsFilter($id){
         $products = $this->model->getProductsFilter($id);
-        $marcas=$this->model->getMarcas();    
+        $marcas=$this->model->getMarcas();
         $this->view->showProducts($marcas, $products);
     }
     

@@ -101,6 +101,6 @@
             {/foreach}
         </ul>
    
-    {/if}
+{/if}
 
 {include file='templates/footer.tpl'}
