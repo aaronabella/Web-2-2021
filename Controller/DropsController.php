@@ -37,7 +37,7 @@ class DropsController{
     //Controller de Productos
 
     function addProduct(){
-        $this->logHelper->checkLogIn();
+        $this->logHelper->checkAdminLogIn();
         if(!isset($_POST['stock'])){
             $stock = 0;
         }else{
@@ -48,13 +48,13 @@ class DropsController{
     }
 
     function delProduct($id){
-        $this->logHelper->checkLogIn();
+        $this->logHelper->checkAdminLogIn();
         $this->model->delProduct($id);
         $this->view->showHome();
     }
 
     function updateProduct($updAct, $id){
-        $this->logHelper->checkLogIn();
+        $this->logHelper->checkAdminLogIn();
         if ($updAct=="addStock") {
             $updAct=1;
         }
@@ -69,7 +69,7 @@ class DropsController{
     //Controller de Marcas
 
     function delMarca(){
-        $this->logHelper->checkLogIn();
+        $this->logHelper->checkAdminLogIn();
         if (isset($_POST['marcaDel'])) {
             $id=$_POST['marcaDel'];
             $this->model->delMarca($id);
@@ -78,7 +78,7 @@ class DropsController{
     }
 
     function updateMarca(){
-        $this->logHelper->checkLogIn();
+        $this->logHelper->checkAdminLogIn();
         if (isset($_POST['marcaUpdate'])) {
             $id=$_POST['marcaUpdate'];
             $this->model->updateMarca($_POST['newName'],$id);
@@ -87,7 +87,7 @@ class DropsController{
     }
 
     function addMarca(){
-        $this->logHelper->checkLogIn();
+        $this->logHelper->checkAdminLogIn();
         $this->model->addMarca($_POST['nuevaMarca']);
         $this->view->showHome();
     }

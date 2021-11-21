@@ -7,10 +7,11 @@ class UserModel{
          $this->db = new PDO('mysql:host=localhost;'.'dbname=db_gordodrops;charset=utf8', 'root', '');
     }
 
-    function getUser($userName){
-        $query = $this->db->prepare('SELECT * FROM usuarios WHERE username = ?');
-        $query->execute([$userName]);
-        return $query->fetch(PDO::FETCH_OBJ);
+    function getUsers(){
+        $query = $this->db->prepare('SELECT * FROM usuarios');
+        $query->execute();
+        $users= $query->fetchAll(PDO::FETCH_OBJ);
+        return $users;
         
     }
 
@@ -19,7 +20,16 @@ class UserModel{
        $query->execute([$userName, $password]);
     }
 
-    
+    function deleteUser($userID){
+        $query = $this->db->prepare("DELETE from usuarios WHERE id_user=?");
+        $query->execute(array($userID));
+    }
+
+    function updateUser($updAdm, $id){
+        $query = $this->db->prepare("UPDATE usuarios SET admin_user=? WHERE id_user=?");
+        $query->execute(array($updAdm, $id));
+
+    }
 
 
 }

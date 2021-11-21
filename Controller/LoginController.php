@@ -44,7 +44,7 @@ class LoginController {
 
             session_start();
             $_SESSION["logged"] = true;
-            $_SESSION["admin"]=$user->admin;
+            $_SESSION["admin"]=$user->admin_user;
             $_SESSION["username"] = $user->username;
             
             $this->view->showHome();
