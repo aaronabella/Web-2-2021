@@ -7,9 +7,9 @@ $router = new Router();
 
 $router-> addroute('zapatillas','GET','ApiDropsController','getProducts');
 $router-> addroute('zapatillas/:ID','GET','ApiDropsController','getSneaker');
-$router-> addroute('zapatillas/:ID','DELETE''ApiDropsController','deleteSneaker');
-$router-> addroute('zapatillas','POST','ApiDropsController','insertSneaker');
-$router-> addroute('zapatillas/','PUT','ApiDropsController','editSneaker');
+$router-> addroute('zapatillas/:ID','DELETE','ApiDropsController','deleteProduct');
+$router-> addroute('zapatillas','POST','ApiDropsController','addProduct');
+$router-> addroute('zapatillas/','PUT','ApiDropsController','updateProduct');
 $router-> addroute('marcas','GET','ApiDropsController','getBrands');
 $router-> addroute('marcas/:ID','GET','ApiDropsController','getBrand');
 $router-> addroute('marcas/:ID','DELETE','ApiDropsController','deleteBrand');
