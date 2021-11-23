@@ -1,6 +1,6 @@
 <?php
 require_once "./Model/DropsModel.php";
-require_once ".Model/BrandsModel.php";
+require_once "./Model/BrandModel.php";
 require_once "./View/ApiView.php";
 
 class ApiDropsController{
@@ -22,18 +22,19 @@ private function getBody(){
 }
 
 function getProducts($params = []) {
-    if(empty($params)){
-        $zapatillas = $this->model->getProducts();
+    $zapatillas = $this->model->getProducts();
     return $this->view->response($zapatillas, 200);
+    
+}
+
+function getSneakers($params=[]){
+    $idProduct = $params[":ID"];
+    $zapatilla = $this->model->getSneakers($idProduct);
+    if($zapatilla){
+        return $this->view->response($zapatilla, 200);
     }
     else{
-        $zapatilla= $this->model->getSneakers($params=[":ID"]);
-        if(!empty($zapatilla)){
-            return $this->view->response($zapatilla, 200);
-        }
-        else{
-            $this->view->response("La zapatilla no existe", 404);
-        }
+        $this->view->response("Las zapatilla no existern", 404);
     }
 }
 
@@ -51,7 +52,7 @@ function deleteProduct($params= null){
 
 function addProduct($params = null){
     $body = $this->getBody();
-    $idProduct = $this->model->addProduct($body->marca, $body->modelo, $body->precio, $body->stock);
+    $id = $this->model->addProduct($body->marca, $body->modelo, $body->precio, $body->stock);
     if($idProduct !=0){
          $this->view->response("Se agrego el producto", 200);
     }

@@ -6,7 +6,7 @@ require_once 'Controller/ApiDropsController.php';
 $router = new Router();
 
 $router-> addroute('zapatillas','GET','ApiDropsController','getProducts');
-$router-> addroute('zapatillas/:ID','GET','ApiDropsController','getSneaker');
+$router-> addroute('zapatillas/:ID','GET','ApiDropsController','getSneakers');
 $router-> addroute('zapatillas/:ID','DELETE','ApiDropsController','deleteProduct');
 $router-> addroute('zapatillas','POST','ApiDropsController','addProduct');
 $router-> addroute('zapatillas/','PUT','ApiDropsController','updateProduct');
