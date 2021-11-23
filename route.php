@@ -61,6 +61,9 @@ switch ($params[0]) {
     case 'updateProduct': 
         $dropsController->updateProduct($params[1], $params[2]); 
         break;
+    case 'uploadImage': 
+        $dropsController->addImage($params[1]); 
+        break;    
     case 'dropProduct': 
         $dropsController->dropProduct($params[1]); 
         break;

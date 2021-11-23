@@ -55,6 +55,15 @@ h2 {
   background-color: azure;
   width: fit-content;
   padding: 10px;
+  margin-left: 5px;
+}
+.fileCont{
+  background-color: rgb(181, 255, 255);
+  width: fit-content;
+  margin-left: 5px;
+}
+.sneakerImg{
+  width: 250px;
 }
 
 #filterCont{

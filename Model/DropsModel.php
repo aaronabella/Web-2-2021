@@ -65,10 +65,23 @@ class DropsModel{
     }
 
     function updateProduct($updAct, $id){
-        $query = $this->db->prepare("UPDATE zapatillas SET Stock=$updAct WHERE id_zapatilla=?");
-        $query->execute(array($id));
+        $query = $this->db->prepare("UPDATE zapatillas SET Stock=? WHERE id_zapatilla=?");
+        $query->execute(array($updAct, $id));
 
     }
+
+    function addImage($img, $id){
+        $pathImg = $this->uploadImage($img);
+        $query = $this->db->prepare("UPDATE zapatillas SET imagen=? WHERE id_zapatilla=?");
+        $query->execute(array($pathImg, $id));
+    }
+
+    private function uploadImage($img){
+        $target = 'images/products/' . uniqid() . '.jpg';
+        move_uploaded_file($img, $target);
+        return $target;
+    }
+
     
 
 

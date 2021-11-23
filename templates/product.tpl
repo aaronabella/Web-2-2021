@@ -9,14 +9,28 @@
         No disponible
         {else}
             Disponible
-    {/if}</p>
+    {/if}
+    </p>
+    {if $sneaker->imagen}
+        <img src="{$sneaker->imagen}" class="sneakerImg"/>
+    {/if}
 
     
 </div>
-    <a class="btn btn-outline-light" href="home" > Volver </a>
+    {if !$sneaker->imagen}
+        <form action="uploadImage/{$sneaker->id_zapatilla}" method="POST" enctype="multipart/form-data" class="fileCont">
+        <input type="file" name="input_name" id="imageToUpload">
+        <button type="submit" class="btn btn-primary">Subir</button>
+        </form>
+    {/if}
+    
+    
+
+    
     {if $prevProduct}
         <a class="btn btn-outline-light" href="dropProduct/{$prevProduct->id_zapatilla}" > Item Anterior </a>
     {/if}
+    <a class="btn btn-outline-light" href="home" > Volver </a>
     {if $nextProduct}
         <a class="btn btn-outline-light" href="dropProduct/{$nextProduct->id_zapatilla}" > Item Siguiente </a>
     {/if}

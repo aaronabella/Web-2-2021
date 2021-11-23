@@ -77,5 +77,14 @@ class DropsController{
 
     }
 
+    function addImage($id){
+        if ($this->logHelper->checkAdminLogIn()) {
+            if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png" ) {
+                $this->dropsModel->addImage($_FILES['input_name']['tmp_name'], $id);
+            }
+        }
+        $this->view->showSneaker($id);
+    }
+
 
 }

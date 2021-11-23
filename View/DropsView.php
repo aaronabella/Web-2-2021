@@ -30,9 +30,13 @@ class DropsView {
         $this->smarty->display('templates/product.tpl');
 
     }
-
+    
     function showLogin(){
         $this->smarty->display('templates/login.tpl');
+    }
+
+    function showSneaker($id){
+        header("Location: ".BASE_URL."dropProduct/".$id);
     }
 
     function showHome(){
