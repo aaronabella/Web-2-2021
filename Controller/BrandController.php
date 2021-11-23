@@ -15,26 +15,29 @@ class BrandController{
     }
 
     function delMarca(){
-        $this->logHelper->checkAdminLogIn();
-        if (isset($_POST['marcaDel'])) {
-            $id=$_POST['marcaDel'];
-            $this->brandModel->delMarca($id);
-        } 
-        $this->view->showHome();
+        if ($this->logHelper->checkAdminLogIn()) {
+            if (isset($_POST['marcaDel'])) {
+                $id=$_POST['marcaDel'];
+                $this->brandModel->delMarca($id);
+            } 
+            $this->view->showHome();
+        }
     }
 
     function updateMarca(){
-        $this->logHelper->checkAdminLogIn();
-        if (isset($_POST['marcaUpdate'])) {
-            $id=$_POST['marcaUpdate'];
-            $this->brandModel->updateMarca($_POST['newName'],$id);
+        if ($this->logHelper->checkAdminLogIn()) {
+            if (isset($_POST['marcaUpdate'])) {
+                $id=$_POST['marcaUpdate'];
+                $this->brandModel->updateMarca($_POST['newName'],$id);
+            }
+            $this->view->showHome();
         }
-        $this->view->showHome();
     }
 
     function addMarca(){
-        $this->logHelper->checkAdminLogIn();
-        $this->brandModel->addMarca($_POST['nuevaMarca']);
-        $this->view->showHome();
+        if ($this->logHelper->checkAdminLogIn()) {
+            $this->brandModel->addMarca($_POST['nuevaMarca']);
+            $this->view->showHome();
+        }
     }
 }

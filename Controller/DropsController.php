@@ -41,32 +41,37 @@ class DropsController{
     //Controller de Productos
 
     function addProduct(){
-        $this->logHelper->checkAdminLogIn();
-        if(!isset($_POST['stock'])){
-            $stock = 0;
-        }else{
-            $stock = 1;
+        if ($this->logHelper->checkAdminLogIn()) {
+            if(!isset($_POST['stock'])){
+                $stock = 0;
+            }else{
+                $stock = 1;
         }
-        $this->dropsModel->addProduct($_POST['Marca'], $_POST['Modelo'],$_POST['Precio'], $stock);
-        $this->view->showHome();
+            $this->dropsModel->addProduct($_POST['Marca'], $_POST['Modelo'],$_POST['Precio'], $stock);
+            $this->view->showHome(); 
+        }
+        
+        
     }
 
     function delProduct($id){
-        $this->logHelper->checkAdminLogIn();
-        $this->dropsModel->delProduct($id);
-        $this->view->showHome();
+        if ($this->logHelper->checkAdminLogIn()) {
+            $this->dropsModel->delProduct($id);
+            $this->view->showHome();
+        }
     }
 
     function updateProduct($updAct, $id){
-        $this->logHelper->checkAdminLogIn();
-        if ($updAct=="addStock") {
-            $updAct=1;
+        if ($this->logHelper->checkAdminLogIn()) {
+            if ($updAct=="addStock") {
+                $updAct=1;
+            }
+            else{
+                $updAct=0;
+            }
+            $this->dropsModel->updateProduct($updAct, $id);
+            $this->view->showHome();
         }
-        else{
-            $updAct=0;
-        }
-        $this->dropsModel->updateProduct($updAct, $id);
-        $this->view->showHome();
 
     }
 
