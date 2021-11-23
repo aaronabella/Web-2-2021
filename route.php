@@ -63,13 +63,13 @@ switch ($params[0]) {
         $dropsController->dropProduct($params[1]); 
         break;
     case 'addMarca':
-        $dropsController-> addMarca();
+        $brandController-> addMarca();
         break;
     case 'delMarca':
-        $dropsController-> delMarca();
+        $brandController-> delMarca();
         break;
     case 'editMarca':
-        $dropsController-> updateMarca();
+        $brandController-> updateMarca();
         break;
     default: 
     echo('404 Page not found'); 

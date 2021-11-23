@@ -14,7 +14,7 @@ class logHelper{
 
     function checkAdminLogIn(){
         session_start();
-        if(!isset($_SESSION["logged"])|| $_SESSION["admin"]=true){
+        if(!isset($_SESSION["logged"])|| $_SESSION["admin"]==false){
             session_destroy();
             header("Location: ".BASE_URL."login");
         }

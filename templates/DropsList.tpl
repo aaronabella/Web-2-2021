@@ -14,7 +14,7 @@
 {/foreach}
 </ul>
 
-{*Chequea si esta Logeado*}
+{*Chequea si es Admin*}
 {if $admin|default:false }
 
     {*Lista de Productos*}
