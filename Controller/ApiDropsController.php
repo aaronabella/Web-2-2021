@@ -1,5 +1,6 @@
 <?php
 require_once "./Model/DropsModel.php";
+require_once ".Model/BrandsModel.php";
 require_once "./View/ApiView.php";
 
 class ApiDropsController{
@@ -26,7 +27,7 @@ function getProducts($params = []) {
     return $this->view->response($zapatillas, 200);
     }
     else{
-        $zapatilla= $this->model->getSneakers($params[":ID"]);
+        $zapatilla= $this->model->getSneakers($params=[":ID"]);
         if(!empty($zapatilla)){
             return $this->view->response($zapatilla, 200);
         }
