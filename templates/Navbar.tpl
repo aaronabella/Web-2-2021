@@ -4,6 +4,10 @@
       <img src="./images/dropLogo.png" alt="" width="30" height="24" class="d-inline-block align-text-top bg-light" id="logo">
       DROPS
     </a>
+    {if $admin|default:false}
+      <a href="userlist"> USUARIOS</a>
+      
+    {/if}
     <div>
     {if $logged|default:false }
      

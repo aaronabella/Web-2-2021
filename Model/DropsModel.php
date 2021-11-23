@@ -38,7 +38,6 @@ class DropsModel{
     function addProduct($marca,$modelo,$precio,$stock){
         $query = $this->db->prepare("INSERT INTO zapatillas(id_marca, Modelo, Precio, Stock) VALUES(?, ?, ?, ?)");
         $query->execute(array($marca,$modelo,$precio,$stock));
-        return $this->$db->lastInsertId();
 
     }
 
