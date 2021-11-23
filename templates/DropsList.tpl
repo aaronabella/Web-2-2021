@@ -26,7 +26,7 @@
                     <a class="btn btn-danger" href="delProduct/{$product->id_zapatilla}">Borrar</a> 
                     {*Editar Producto segun stock*}
                     {if $product->Stock==0}
-                        <a class="btn btn-warning" href="updateProduct/addStock/{$product->id_zapatilla}">Agregar Stock</a>
+                        <a class="btn btn-warning" href="updateProduct/giveAdm/{$product->id_zapatilla}">Agregar Stock</a>
                     {else}
                         
                         <a class="btn btn-warning" href="updateProduct/delStock/{$product->id_zapatilla}">Quitar Stock</a>                    

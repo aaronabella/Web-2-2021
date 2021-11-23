@@ -46,6 +46,7 @@ class LoginController {
             $_SESSION["logged"] = true;
             $_SESSION["admin"]=$user->admin_user;
             $_SESSION["username"] = $user->username;
+            $_SESSION["userID"] = $user->id_user;
             
             $this->view->showHome();
         } else {

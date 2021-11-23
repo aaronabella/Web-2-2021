@@ -23,8 +23,10 @@ class DropsView {
         
     }
      
-    function showProduct($product){
-        $this->smarty->assign('product', $product);
+    function showProduct($sneaker, $nextProducts, $prevProducts){
+        $this->smarty->assign('nextProduct', $nextProducts);
+        $this->smarty->assign('prevProduct', $prevProducts);
+        $this->smarty->assign('sneaker', $sneaker);
         $this->smarty->display('templates/product.tpl');
 
     }

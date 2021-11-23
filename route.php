@@ -3,6 +3,7 @@ require_once "Controller/DropsController.php";
 require_once "Controller/LoginController.php";
 require_once "Controller/BrandController.php";
 require_once "Controller/RegisterController.php";
+require_once "Controller/UserController.php";
 
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -22,6 +23,7 @@ $dropsController= new DropsController();
 $loginController= new LoginController();
 $brandController= new BrandController();
 $registerController= new RegisterController();
+$userController= new UserController();
 
 switch ($params[0]) {
     case 'home': 
@@ -71,6 +73,15 @@ switch ($params[0]) {
     case 'editMarca':
         $brandController-> updateMarca();
         break;
+    case 'userlist':
+        $userController-> showUsers();
+        break;
+    case 'deleteUser':
+        $userController-> delUser($params[1]);
+        break;
+    case 'updateUser':
+        $userController-> updateUser($params[1], $params[2]);
+        break;    
     default: 
     echo('404 Page not found'); 
     break;

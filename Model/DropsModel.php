@@ -33,6 +33,24 @@ class DropsModel{
 
     }
 
+    function getNextSneakers($id){
+
+        $query = $this->db->prepare( "SELECT zapatillas.*, marcas.Nombre as marca from zapatillas join marcas on zapatillas.id_marca= marcas.id_marca  WHERE id_zapatilla>? ORDER BY id_zapatilla asc LIMIT 1");
+        $query->execute(array($id));
+        $zapatilla = $query->fetch(PDO::FETCH_OBJ);
+        return $zapatilla;
+
+    }
+
+    function getPrevSneakers($id){
+
+        $query = $this->db->prepare( "SELECT zapatillas.*, marcas.Nombre as marca from zapatillas join marcas on zapatillas.id_marca= marcas.id_marca WHERE id_zapatilla<? ORDER BY id_zapatilla DESC LIMIT 1");
+        $query->execute(array($id));
+        $zapatilla = $query->fetch(PDO::FETCH_OBJ);
+        return $zapatilla;
+
+    }
+
     //Controlador de Productos
 
     function addProduct($marca,$modelo,$precio,$stock){

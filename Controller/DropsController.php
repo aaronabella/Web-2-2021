@@ -34,8 +34,10 @@ class DropsController{
     
     //Ver Producto Individual
     function dropProduct($id){
-        $product = $this-> dropsModel-> getSneakers($id);
-        $this->view->showProduct($product); 
+        $nextProduct = $this->dropsModel->getNextSneakers($id);
+        $prevProduct = $this->dropsModel->getPrevSneakers($id);
+        $sneaker = $this-> dropsModel-> getSneakers($id);
+        $this->view->showProduct($sneaker, $nextProduct, $prevProduct); 
     }
 
     //Controller de Productos
