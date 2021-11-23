@@ -53,7 +53,7 @@ function deleteProduct($params= null){
 function addProduct($params = null){
     $body = $this->getBody();
     $id = $this->model->addProduct($body->marca, $body->modelo, $body->precio, $body->stock);
-    if($idProduct !=0){
+    if($id !=0){
          $this->view->response("Se agrego el producto", 200);
     }
     else{
