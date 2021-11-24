@@ -1,12 +1,10 @@
 <?php
 require_once "./Model/DropsModel.php";
-require_once "./Model/BrandModel.php";
 require_once "./Model/CommentsModel.php";
 require_once "./View/ApiView.php";
-require_once "./Model/UserModel.php";
 require_once "./Helper/logHelper.php";
 
-class ApiDropsController{
+class ApiCommentsController{
 
     private $model;
     private $view;
