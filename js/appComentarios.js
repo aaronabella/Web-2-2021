@@ -34,6 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (e) {
             console.log(e);
         }
+        try {
+            let response = await fetch(API_URL);
+            let comentarios = await response.json();
+            commList.comentarios = comentarios;
+          } catch (e) {
+            console.log(e);
+          }
     }
 
 

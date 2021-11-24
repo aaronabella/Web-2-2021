@@ -39,8 +39,8 @@ function getCommentsSneakers($params = null){
 }
 
 function addComment($params= null){
-   
-        $id_user=1;
+    if($this->helper->checkLogIn()){
+        $id_user=$_SESSION["userID"];
         $id_zapatilla = $params[":ID"];
         $body= $this->getBody();
         $sneakers = $this->model->getSneakers($id_zapatilla	);
@@ -59,8 +59,10 @@ function addComment($params= null){
             }
         } else {
             $this->view->response("Zapatillas no encontradas", 404);
-        }
-     
+        }}
+     else {
+        $this->view->response("Usuario no logeado ", 403);
+    }
 }
 
 function delComment($params= null){
