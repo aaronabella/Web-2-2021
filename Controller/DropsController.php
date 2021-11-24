@@ -39,7 +39,7 @@ class DropsController{
         $nextProduct = $this->dropsModel->getNextSneakers($id);
         $prevProduct = $this->dropsModel->getPrevSneakers($id);
         $sneaker = $this-> dropsModel-> getSneakers($id);
-        $comentarios = $this->commentsModel-> getComments($id);
+        $comentarios = $this->commentsModel-> getCommentsSneakers($id);
         $this->view->showProduct($sneaker, $nextProduct, $prevProduct, $comentarios); 
     }
 

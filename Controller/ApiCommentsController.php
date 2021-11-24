@@ -28,7 +28,7 @@ private function getBody(){
 function getCommentsSneakers($params = null){
     $idProduct = $params[":ID"];
     $sneakers = $this->model->getSneakers($idProduct);
-    if(!empty($snakers)){
+    if(!empty($sneakers)){
         $comments= $this->commentsModel->getCommentsSneakers($idProduct);
         return $this->view->response($comments, 200);
     }
@@ -39,8 +39,8 @@ function getCommentsSneakers($params = null){
 }
 
 function addComment($params= null){
-    if($this->helper->checkLogIn()){
-        $id_user=$_SESSION["userID"];
+   
+        $id_user=1;
         $id_zapatilla = $params[":ID"];
         $body= $this->getBody();
         $sneakers = $this->model->getSneakers($id_zapatilla	);
@@ -55,13 +55,12 @@ function addComment($params= null){
                 }
             } else {
                 $this->view->response("Valores invalidos", 400);
+                var_dump($body);
             }
         } else {
             $this->view->response("Zapatillas no encontradas", 404);
-        }}
-     else {
-        $this->view->response("Usuario no logeado ", 403);
-    }
+        }
+     
 }
 
 function delComment($params= null){
