@@ -28,7 +28,7 @@ class CommentsModel{
     }
 
     function getComment($id){
-        $query = $this->db->prepare( "SELECT from comentarios WHERE id_comentario=?");
+        $query = $this->db->prepare( "SELECT * from comentarios WHERE id_comentario=?");
         $query->execute(array($id));
         $comment= $query->fetch(PDO::FETCH_OBJ);
         return $comment;

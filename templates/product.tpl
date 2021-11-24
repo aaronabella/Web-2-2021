@@ -1,6 +1,7 @@
 {include file='templates/header.tpl'}
+{include file='templates/Navbar.tpl'}
 
-<div class="prodContainer">
+<div class="prodContainer" >
     <h1 class="mb-4">{$sneaker->marca} {$sneaker->Modelo}</h1>
     <p>Descripcion: {$sneaker->Modelo}</p>
     <p>Precio: $ {$sneaker->Precio}</p>
@@ -34,6 +35,10 @@
     {if $nextProduct}
         <a class="btn btn-outline-light" href="dropProduct/{$nextProduct->id_zapatilla}" > Item Siguiente </a>
     {/if}
-{include file='templates/addcomment.tpl'}
+{if $logged|default:false}
+  {include file='templates/addcomment.tpl'}
+{/if}
+    
+
 {include file='templates/comentarios.tpl'}
 {include file='templates/footer.tpl'}

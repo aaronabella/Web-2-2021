@@ -41,15 +41,13 @@ function getCommentsSneakers($params = null){
 }
 
 function addComment($params= null){
-    //if($this->helper->checkLogIn()){
-        $id_user=1;//$_SESSION["userID"];
         $id_zapatilla = $params[":ID"];
         $body= $this->getBody();
         $sneakers = $this->model->getSneakers($id_zapatilla	);
         var_dump($body);
         if(!empty($sneakers)){
-            if (isset($body->descripcion) && $body->descripcion != "" && isset($body->puntuacion) && $body->puntuacion != "") {
-                $id = $this->commentsModel->addComment($body->descripcion, $body->puntuacion, $id_zapatilla, $id_user);
+            if (isset($body->descripcion) && $body->descripcion != "" && isset($body->puntuacion) && $body->puntuacion != ""&& isset($body->id_user) && $body->id_user != "") {
+                $id = $this->commentsModel->addComment($body->descripcion, $body->puntuacion, $id_zapatilla, $body->id_user);
                 if ($id != 0) {
                     $this->view->response("Se agregro el comentario correctameante", 200);
                 } else {
@@ -60,14 +58,10 @@ function addComment($params= null){
             }
         } else {
             $this->view->response("Zapatillas no encontradas", 404);
-        }//}
-     //else {
-       // $this->view->response("Usuario no logeado ", 403);
-    //}
+        }
 }
 
 function delComment($params= null){
-    if($this->helper->checkAdminLogIn()){
         $id_comentario= $params[":ID"];
         $comment= $this->commentsModel->getComment($id_comentario);
         if($comment){
@@ -77,12 +71,6 @@ function delComment($params= null){
         else{
             return $this->view->response("No existe ese comentario", 404);
         }
-        
-     
-    }
-    else{
-            $this->view->response("Usuario no logeado", 403);
-    }
 }
     
 

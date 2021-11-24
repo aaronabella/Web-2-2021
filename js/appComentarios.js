@@ -3,9 +3,9 @@ let idZapatilla = document.querySelector("#dataZapatilla").dataset.id_zapatilla;
 let user_rol = document.querySelector("#dataZapatilla").dataset.rol;
 let id_user = document.querySelector("#dataZapatilla").dataset.id_usuario;
 document.addEventListener("DOMContentLoaded", () => {
-    const API_URL = "api/comentarios/zapatillas/"+idZapatilla;
+    const API_URL = "api/comentarios/zapatillas/";
 
-
+    
     let app = new Vue({
         el: "#app",
         data: {
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     async function getComentarios() {
         
         try {
-            let response = await fetch(API_URL);
+            let response = await fetch(API_URL+ idZapatilla);
             let comentariosAPI = await response.json();
             app.comentarios = comentariosAPI;
         } catch (e) {
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
             try {
 
-                let res = await fetch(API_URL, {
+                let res = await fetch(API_URL+ idZapatilla, {
                     method: "POST",
                     headers: { "Content-type": "application/json" },
                     body: JSON.stringify(nuevoComentario),
@@ -75,16 +75,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     async function eliminarComentario(e) {
-        let id = e.target.dataset.id_comentario;
+        if (app.rol=1) {
+           let id = e.target.dataset.id_comentario;
         try {
-            let response = await fetch(API_URL + "/deleteComment/" + id, {
+            let response = await fetch(API_URL + id, {
                 method: "DELETE",
             });
             console.log(response);
             getComentarios();
         } catch (e) {
             console.log(e);
+        } 
         }
+        
     }
 
     let enviarComentario = document.querySelector("#enviarComentario");

@@ -27,7 +27,14 @@ class DropsView {
         session_start();
         if (isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
             $this->smarty->assign('admin', $_SESSION['admin']);
+            $this->smarty->assign('logged', $_SESSION['logged']);
+            $this->smarty->assign('username', $_SESSION['username']); 
             $this->smarty->assign('usuario', $_SESSION['userID']);     
+        }else {
+            $this->smarty->assign('admin', false);
+            $this->smarty->assign('logged', false);
+            $this->smarty->assign('username', null); 
+            $this->smarty->assign('usuario', 0);     
         }
         $this->smarty->assign('nextProduct', $nextProducts);
         $this->smarty->assign('prevProduct', $prevProducts);
