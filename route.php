@@ -4,6 +4,7 @@ require_once "Controller/LoginController.php";
 require_once "Controller/BrandController.php";
 require_once "Controller/RegisterController.php";
 require_once "Controller/UserController.php";
+require_once "Controller/CommentController.php";
 
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -24,6 +25,7 @@ $loginController= new LoginController();
 $brandController= new BrandController();
 $registerController= new RegisterController();
 $userController= new UserController();
+$commentController= new CommentController();
 
 switch ($params[0]) {
     case 'home': 
@@ -84,7 +86,10 @@ switch ($params[0]) {
         break;
     case 'updateUser':
         $userController-> updateUser($params[1], $params[2]);
-        break;    
+        break;
+    case 'addComment':
+        $commentController->addComment();
+        break;
     default: 
     echo('404 Page not found'); 
     break;

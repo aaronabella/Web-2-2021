@@ -3,6 +3,7 @@ require_once "./Model/DropsModel.php";
 require_once "./View/DropsView.php";
 require_once "./Helper/logHelper.php";
 require_once "./Model/BrandModel.php";
+require_once "./Model/CommentsModel.php";
 
 class DropsController{
 
@@ -15,6 +16,7 @@ class DropsController{
     function __construct(){
         $this->dropsModel = new DropsModel();
         $this->brandModel = new BrandModel();
+        $this->commentsModel = new commentsModel;
         $this->view = new DropsView();
         $this->logHelper = new logHelper();
     }
@@ -37,7 +39,8 @@ class DropsController{
         $nextProduct = $this->dropsModel->getNextSneakers($id);
         $prevProduct = $this->dropsModel->getPrevSneakers($id);
         $sneaker = $this-> dropsModel-> getSneakers($id);
-        $this->view->showProduct($sneaker, $nextProduct, $prevProduct); 
+        $comentarios = $this->commentsModel-> getComments($id);
+        $this->view->showProduct($sneaker, $nextProduct, $prevProduct, $comentarios); 
     }
 
     //Controller de Productos

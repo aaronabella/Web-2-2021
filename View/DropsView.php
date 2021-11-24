@@ -23,10 +23,11 @@ class DropsView {
         
     }
      
-    function showProduct($sneaker, $nextProducts, $prevProducts){
+    function showProduct($sneaker, $nextProducts, $prevProducts, $comentarios){
         $this->smarty->assign('nextProduct', $nextProducts);
         $this->smarty->assign('prevProduct', $prevProducts);
         $this->smarty->assign('sneaker', $sneaker);
+        $this->smarty->assign('comentarios',$comentarios);
         $this->smarty->display('templates/product.tpl');
 
     }
@@ -41,6 +42,10 @@ class DropsView {
 
     function showHome(){
         header("Location: ".BASE_URL."home");
+    }
+
+    function showComments(){
+        $this->smarty->display('templats/comentarios.tpl');
     }
 
 }
