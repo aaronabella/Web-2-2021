@@ -28,7 +28,7 @@ private function getBody(){
 function getCommentsSneakers($params = null){
     $idProduct = $params[":ID"];
     $sneakers = $this->model->getSneakers($idProduct);
-    if(!empty($snakers)){
+    if(!empty($sneakers)){
         $comments= $this->commentsModel->getCommentsSneakers($idProduct);
         return $this->view->response($comments, 200);
     }
@@ -55,6 +55,7 @@ function addComment($params= null){
                 }
             } else {
                 $this->view->response("Valores invalidos", 400);
+                var_dump($body);
             }
         } else {
             $this->view->response("Zapatillas no encontradas", 404);

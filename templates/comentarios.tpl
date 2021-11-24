@@ -1,56 +1,40 @@
-    <form>  
-        <h2>Agregue un comentario</h2>
-        <form class="commentForm" action="addComment" method="post">
-    
-        <select name="Comment" required>
-            <option value="1">
-            <option value="2">
-            <option value="3">
-            <option value="4">
-            <option value="5">
-        </select>
-        <input placeholder="Comente" type="text" name="comentario" id="comentario" required>
-        <input type="submit" class="btn btn-primary" value="Agregar">
-    </form>
-        
-        
-        
-        
-        
-        
-        <h1>Comentarios</h1>
-        <table class="table" id="app-table">
-            <thead>
-                <th>Usuario</th>
-                <th>Comentario</th>
-                <th>Puntuacion</th>
+<h1>Comentarios</h1>
+    <table class="table" id="app-table">
+        <thead>
+            <th>Usuario</th>
+            <th>Comentario</th>
+            <th>Puntuacion</th>
             
-            </thead>
-            <tr>
-               {foreach from=$comentarios item=$comentario}
-               <td>{$comentario->id_user}</td>
+        </thead>
+        {foreach from=$comentarios item=$comentario}<tr>
+            
+               <td>{$comentario->usuario}</td>
                <td>{$comentario->descripcion}</td>
                <td>{$comentario->puntuacion}</td>
-               {/foreach}
-               </tr>
-
-        </table>
-
-        <h1>Comentarios</h1>
-        <table class="table" id="id-table">
-            <thead>
-                <th>Usuario</th>
-                <th>Comentario</th>
-                <th>Puntuacion</th>
             
-            </thead>
-            <tr v-for="comentario in comentarios">
-               <td>{{comentario->id_user}}</td>
-               <td>{{comentario->descripcion}}</td>
-               <td>{{comentario->puntuacion}}</td>
-               </tr>
+        </tr>
+    {/foreach}
+    </table>
 
-        </table>
+{literal}
+    <div id="app">
+
+        <h2>Comentarios (<span v-if="comentarios.length">{{ comentarios.length }}</span>)
+        
+        <ul id="lista-comentarios" class="list-group listComments">
+            <li v-for="comentario in comentarios" class="list-group-item comment">
+                <p>Usuario: {{comentario.usuario}}
+                </p>
+                <div class="comentarioTexto">{{comentario.descripcion}}</div>
+                <span class="puntaje">{{comentario.puntuacion}}</span>
+                <input class="botonEliminar" id="eliminarComentario" type="button"
+                    :data-id_comentario="comentario.id_comentario" value="borrar">
+            </li>
+        </ul>
+    </div>
+{/literal}
+
+        
 
 
 
@@ -60,8 +44,3 @@
 
 
 
-
-
-
-
-<script src="js/script.js"></script>

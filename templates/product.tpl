@@ -34,6 +34,6 @@
     {if $nextProduct}
         <a class="btn btn-outline-light" href="dropProduct/{$nextProduct->id_zapatilla}" > Item Siguiente </a>
     {/if}
-
+{include file='templates/addcomment.tpl'}
 {include file='templates/comentarios.tpl'}
 {include file='templates/footer.tpl'}
