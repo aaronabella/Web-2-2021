@@ -20,9 +20,11 @@ class CommentsModel{
 
     }
 
-    function addComment($id_zapatilla,$id_user,$descripcion,$puntuacion){
+    function addComment($descripcion, $puntuacion, $id_zapatilla, $id_user){
         $query = $this->db->prepare("INSERT INTO comentarios(id_zapatilla,id_user, descripcion, puntuacion) VALUES(?, ?, ?, ?)");
         $query->execute(array($id_zapatilla,$id_user,$descripcion,$puntuacion));
+        $id=$this->db->lastInsertID();
+        return $query;
     }
 
     function getComment($id){

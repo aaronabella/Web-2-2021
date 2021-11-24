@@ -10,7 +10,7 @@ $router-> addroute('comentarios', 'GET', 'APiComentariosController', 'getComment
 $router-> addroute('comentarios/zapatillas/:ID', 'GET', 'ApiCommentsController', 'getCommentsSneakers');
 $router-> addroute('comentarios/zapatillas/:ID', 'POST', 'ApiCommentsController', 'addComment');
 $router-> addroute('comentarios/zapatillas/:ID', 'DELETE','ApiCommentsController', 'delComment');
-
 $resource = $_GET['resource'];
 $method = $_SERVER['REQUEST_METHOD'];
+
 $router->route($resource, $method);

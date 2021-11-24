@@ -1,21 +1,3 @@
-<h1>Comentarios</h1>
-    <table class="table" id="app-table">
-        <thead>
-            <th>Usuario</th>
-            <th>Comentario</th>
-            <th>Puntuacion</th>
-            
-        </thead>
-        {foreach from=$comentarios item=$comentario}<tr>
-            
-               <td>{$comentario->usuario}</td>
-               <td>{$comentario->descripcion}</td>
-               <td>{$comentario->puntuacion}</td>
-            
-        </tr>
-    {/foreach}
-    </table>
-
 {literal}
     <div id="app">
 

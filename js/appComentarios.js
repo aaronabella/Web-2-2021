@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
             try {
 
-                let res = await fetch(API_URL + "/zapatillas/" + idZapatilla, {
+                let res = await fetch(API_URL, {
                     method: "POST",
                     headers: { "Content-type": "application/json" },
                     body: JSON.stringify(nuevoComentario),

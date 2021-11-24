@@ -16,6 +16,7 @@ class ApiCommentsController{
         $this->commentsModel = new CommentsModel();
         $this->view = new ApiView();
         $this->helper= new logHelper();
+       
     }
 
 
@@ -31,6 +32,7 @@ function getCommentsSneakers($params = null){
     if(!empty($sneakers)){
         $comments= $this->commentsModel->getCommentsSneakers($idProduct);
         return $this->view->response($comments, 200);
+        
     }
     else{
         return $this->view->response("No se encontro el producto", 404);
@@ -39,12 +41,12 @@ function getCommentsSneakers($params = null){
 }
 
 function addComment($params= null){
-    if($this->helper->checkLogIn()){
-        $id_user=$_SESSION["userID"];
+    //if($this->helper->checkLogIn()){
+        $id_user=1;//$_SESSION["userID"];
         $id_zapatilla = $params[":ID"];
         $body= $this->getBody();
         $sneakers = $this->model->getSneakers($id_zapatilla	);
-        
+        var_dump($body);
         if(!empty($sneakers)){
             if (isset($body->descripcion) && $body->descripcion != "" && isset($body->puntuacion) && $body->puntuacion != "") {
                 $id = $this->commentsModel->addComment($body->descripcion, $body->puntuacion, $id_zapatilla, $id_user);
@@ -58,10 +60,10 @@ function addComment($params= null){
             }
         } else {
             $this->view->response("Zapatillas no encontradas", 404);
-        }}
-     else {
-        $this->view->response("Usuario no logeado ", 403);
-    }
+        }//}
+     //else {
+       // $this->view->response("Usuario no logeado ", 403);
+    //}
 }
 
 function delComment($params= null){
