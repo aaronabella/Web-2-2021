@@ -1,13 +1,17 @@
 "use strict";
-
+let idZapatilla = document.querySelector("#dataZapatilla").dataset.id_zapatilla;
+let user_rol = document.querySelector("#dataZapatilla").dataset.rol;
+let id_user = document.querySelector("#dataZapatilla").dataset.id_usuario;
 document.addEventListener("DOMContentLoaded", () => {
-    const API_URL = "api/comentarios";
+    const API_URL = "api/comentarios/zapatillas/"+idZapatilla;
 
 
     let app = new Vue({
         el: "#app",
         data: {
             comentarios: [],
+            rol: user_rol,
+            id_usuario : id_user,
         },
     });
 
@@ -25,22 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(listaComentarios, { childList: true });
 
     async function getComentarios() {
-        // fetch para traer todos los comentarios
-        let url = document.querySelector("#dataZapatilla").dataset.id_zapatilla;
+        
         try {
-            let response = await fetch(API_URL + "/zapatillas/" + url);
+            let response = await fetch(API_URL);
             let comentariosAPI = await response.json();
             app.comentarios = comentariosAPI;
         } catch (e) {
             console.log(e);
         }
-        try {
-            let response = await fetch(API_URL);
-            let comentarios = await response.json();
-            commList.comentarios = comentarios;
-          } catch (e) {
-            console.log(e);
-          }
     }
 
 
@@ -49,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let puntuacion = document.querySelector('#puntuacion').value;
         let comentario = document.querySelector("#comentario").value;
-        let idZapatilla = document.querySelector("#dataZapatilla").dataset.id_zapatilla;
 
         if (comentario == "" || puntuacion === null) {
             alert("El comentario no puede estar vacio");
@@ -58,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 descripcion: comentario,
                 puntuacion: puntuacion,
                 id_zapatilla: idZapatilla,
+                id_user: id_user,
             };
             try {
 

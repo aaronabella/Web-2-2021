@@ -55,7 +55,6 @@ function addComment($params= null){
                 }
             } else {
                 $this->view->response("Valores invalidos", 400);
-                var_dump($body);
             }
         } else {
             $this->view->response("Zapatillas no encontradas", 404);

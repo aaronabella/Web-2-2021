@@ -24,6 +24,11 @@ class DropsView {
     }
      
     function showProduct($sneaker, $nextProducts, $prevProducts, $comentarios){
+        session_start();
+        if (isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
+            $this->smarty->assign('admin', $_SESSION['admin']);
+            $this->smarty->assign('usuario', $_SESSION['userID']);     
+        }
         $this->smarty->assign('nextProduct', $nextProducts);
         $this->smarty->assign('prevProduct', $prevProducts);
         $this->smarty->assign('sneaker', $sneaker);
