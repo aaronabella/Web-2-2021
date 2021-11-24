@@ -9,18 +9,14 @@ require_once "./Helper/logHelper.php";
 class ApiDropsController{
 
     private $model;
-    private $brandModel;
     private $view;
-    private $userModel;
     private $commentsModel;
     private $helper;
 
     function __construct(){
         $this->model = new DropsModel();
-        $this->brandModel = new BrandModel();
         $this->commentsModel = new CommentsModel();
         $this->view = new ApiView();
-        $this->userModel= new UserModel();
         $this->helper= new logHelper();
     }
 
@@ -49,11 +45,11 @@ function addComment($params= null){
         $id_user=$_SESSION["userID"];
         $id_zapatilla = $params[":ID"];
         $body= $this->getBody();
-        $sneakers = $this->model->getSneaker($idProduct);
+        $sneakers = $this->model->getSneakers($id_zapatilla	);
         
         if(!empty($sneakers)){
             if (isset($body->descripcion) && $body->descripcion != "" && isset($body->puntuacion) && $body->puntuacion != "") {
-                $id = $this->model->addComment($body->descripcion, $body->puntuacion, $id_zapatilla, $id_user);
+                $id = $this->commentsModel->addComment($body->descripcion, $body->puntuacion, $id_zapatilla, $id_user);
                 if ($id != 0) {
                     $this->view->response("Se agregro el comentario correctameante", 200);
                 } else {
@@ -75,11 +71,11 @@ function delComment($params= null){
         $id_comentario= $params[":ID"];
         $comment= $this->commentsModel->getComment($id_comentario);
         if($comment){
-            $this->CommentModel->delCommentById($id_comentario);
+            $this->commentsModel->delCommentById($id_comentario);
             return $this->view->response("El comentario se borro", 200);
         }
         else{
-            return $this->view->response("No existe ese comentario", 404)
+            return $this->view->response("No existe ese comentario", 404);
         }
         
      

@@ -7,9 +7,22 @@ class UserView{
     function __construct() {
         $this->smarty = new Smarty();
     }
+    
+
+    function showHome(){
+        header("Location: ".BASE_URL."home");
+    }
 
     function showUserPage(){
         header("Location: ".BASE_URL."userlist");
+    }
+    
+    function showRegister(){   
+        $this->smarty->display('templates/register.tpl');
+    }
+    
+    function showLogin(){   
+        $this->smarty->display('templates/login.tpl');
     }
 
     function showUserList($users){
