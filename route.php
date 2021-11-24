@@ -1,10 +1,8 @@
 <?php
 require_once "Controller/DropsController.php";
-require_once "Controller/LoginController.php";
 require_once "Controller/BrandController.php";
-require_once "Controller/RegisterController.php";
 require_once "Controller/UserController.php";
-require_once "Controller/CommentController.php";
+require_once "Controller/ApiCommentsController.php";
 
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -21,11 +19,9 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 $dropsController= new DropsController();
-$loginController= new LoginController();
 $brandController= new BrandController();
-$registerController= new RegisterController();
 $userController= new UserController();
-$commentController= new CommentController();
+$commentController= new ApiCommentsController();
 
 switch ($params[0]) {
     case 'home': 
@@ -36,22 +32,22 @@ switch ($params[0]) {
         break;
 
     case'loginPage':
-        $loginController->showLogin();
+        $userController->showLogin();
         break;
 
     case 'logout':
-        $loginController->dropsLogout();
+        $userController->dropsLogout();
         break;
 
     case 'login':
-        $loginController->dropsLogin();
+        $userController->dropsLogin();
         break;
 
     case 'registerPage':
-        $registerController->showRegister();
+        $userController->showRegister();
         break;
     case 'register':
-        $registerController->dropsRegister();
+        $userController->dropsRegister();
         break;
 
     case 'addProduct': 
