@@ -2,20 +2,17 @@
 require_once "./Model/DropsModel.php";
 require_once "./Model/CommentsModel.php";
 require_once "./View/ApiView.php";
-require_once "./Helper/logHelper.php";
 
 class ApiCommentsController{
 
     private $model;
     private $view;
     private $commentsModel;
-    private $helper;
 
     function __construct(){
         $this->model = new DropsModel();
         $this->commentsModel = new CommentsModel();
         $this->view = new ApiView();
-        $this->helper= new logHelper();
        
     }
 
