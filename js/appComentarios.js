@@ -1,10 +1,12 @@
 "use strict";
-let idZapatilla = document.querySelector("#dataZapatilla").dataset.id_zapatilla;
-let user_rol = document.querySelector("#dataZapatilla").dataset.rol;
-let id_user = document.querySelector("#dataZapatilla").dataset.id_usuario;
+
 document.addEventListener("DOMContentLoaded", () => {
     const API_URL = "api/comentarios/zapatillas/";
 
+    let idZapatilla = document.querySelector("#dataZapatilla").dataset.id_zapatilla;
+    let user_rol = document.querySelector("#dataZapatilla").dataset.rol;
+    let id_user = document.querySelector("#dataZapatilla").dataset.id_usuario;
+    
     
     let app = new Vue({
         el: "#app",

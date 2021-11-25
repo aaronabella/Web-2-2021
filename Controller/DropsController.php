@@ -39,8 +39,8 @@ class DropsController{
         $nextProduct = $this->dropsModel->getNextSneakers($id);
         $prevProduct = $this->dropsModel->getPrevSneakers($id);
         $sneaker = $this-> dropsModel-> getSneakers($id);
-        $comentarios = $this->commentsModel-> getCommentsSneakers($id);
-        $this->view->showProduct($sneaker, $nextProduct, $prevProduct, $comentarios); 
+        //traer por api
+        $this->view->showProduct($sneaker, $nextProduct, $prevProduct); 
     }
 
     //Controller de Productos
@@ -75,9 +75,9 @@ class DropsController{
                 $updAct=0;
             }
             $this->dropsModel->updateProduct($updAct, $id);
-            $this->view->showHome();
+            
         }
-
+        $this->view->showHome();
     }
 
     function addImage($id){

@@ -35,10 +35,9 @@
     {if $nextProduct}
         <a class="btn btn-outline-light" href="dropProduct/{$nextProduct->id_zapatilla}" > Item Siguiente </a>
     {/if}
-{if $logged|default:false}
-  {include file='templates/addcomment.tpl'}
-{/if}
-    
 
+
+<h3>DEBE ESTAR LOGEADO PARA AGREGAR COMENTARIOS</h3>
+{include file='templates/addcomment.tpl'}   
 {include file='templates/comentarios.tpl'}
 {include file='templates/footer.tpl'}
