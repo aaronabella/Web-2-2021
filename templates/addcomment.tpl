@@ -1,12 +1,10 @@
 
-
-
-<form class="commentForm" action="api/comentarios" id="dataZapatilla" data-id_zapatilla="{$sneaker->id_zapatilla}" 
+<form  action="api/comentarios" id="dataZapatilla" data-id_zapatilla="{$sneaker->id_zapatilla}" 
 
 {if $logged|default:false}
     data-rol="{$admin}" data-id_usuario="{$usuario}"
 {else}
-    data-rol="0" data-id_usuario="0"
+    data-rol="0" data-id_usuario="0" class="dissapear"
 {/if}
  method="POST">
     <h2>Agregue un comentario</h2>

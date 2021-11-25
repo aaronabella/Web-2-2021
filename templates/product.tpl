@@ -37,7 +37,6 @@
     {/if}
 
 
-<h3>DEBE ESTAR LOGEADO PARA AGREGAR COMENTARIOS</h3>
 {include file='templates/addcomment.tpl'}   
 {include file='templates/comentarios.tpl'}
 {include file='templates/footer.tpl'}

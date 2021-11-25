@@ -65,7 +65,9 @@ h2 {
 .sneakerImg{
   width: 250px;
 }
-
+.dissapear{
+  display: none;
+}
 #filterCont{
   display: flex;
   width: fit-content;
